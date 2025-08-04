@@ -1,9 +1,16 @@
+<!--
+SPDX-FileComment: Project Homepage: https://github.com/rstammdev/sudoku-qt
+SPDX-FileCopyrightText: 2025 Ralf Stamm
+SPDX-License-Identifier: GPL-3.0-only
+-->
 
-<img src="res/icons/apps/16/sudoku-qt.svg" alt="Sudoku-Qt" width="64" height="64" style="float: left;">
 
-# Sudoku-Qt
-
-A logic-based, combinatorial number-placement puzzle
+<table>
+  <tr>
+    <td valign="middle"><img src="res/icons/apps/16/sudoku-qt.svg" alt="Sudoku-Qt" width="72" height="72"></td>
+    <td valign="middle" style="padding-left:16px;"><h1>Sudoku-Qt</h1><p>Logic-based, combinatorial number-placement puzzle</p></td>
+  </tr>
+</table>
 
 
 ## About
@@ -16,7 +23,7 @@ The [Killer Sudoku](https://en.wikipedia.org/wiki/Killer_sudoku "Visit Killer Su
 
 The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.
 
-[Sudoku-Qt](https://rstammdev.github.io/sudoku-qt "Visit Sudoku-Qt's homepage") is a free open-source game for these Sudoku games written in C++ using the Qt framework.
+[Sudoku-Qt](https://rstammdev.github.io/sudoku-qt "Visit project's homepage") is a free open-source game for these Sudoku games written in C++ using the Qt framework.
 
 Copyright &copy; 2025 [Ralf Stamm](https://rstammdev.github.io "Visit organization's homepage").
 
