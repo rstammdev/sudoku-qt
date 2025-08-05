@@ -24,6 +24,9 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp
 
+TRANSLATIONS += \
+    i18n/sudoku-qt_en_001.ts
+
 DISTFILES += \
     README.md
 
