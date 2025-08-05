@@ -6,11 +6,14 @@
 
 #include "mainwindow.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
 
+    setWindowIcon(QIcon::fromTheme("sudoku-qt"_L1, QIcon(":/icons/apps/16/sudoku-qt"_L1)));
     setMinimumSize(854, 480);
 
 }
