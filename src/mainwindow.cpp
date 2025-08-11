@@ -83,6 +83,14 @@ void MainWindow::setupUi()
     m_actionShowStatusbar->setCheckable(true);
     m_actionShowStatusbar->setChecked(true);
 
+    QAction* actionConfigureKeyboardShortcuts = addAction(tr("Configure &Keyboard Shortcuts..."));
+    actionConfigureKeyboardShortcuts->setObjectName("actionConfigureKeyboardShortcuts"_L1);
+    actionConfigureKeyboardShortcuts->setIcon(QIcon::fromTheme("configure-shortcuts"_L1, QIcon(":/icons/actions/16/configure-shortcuts"_L1)));
+    actionConfigureKeyboardShortcuts->setIconText(tr("Shortcuts"));
+    actionConfigureKeyboardShortcuts->setShortcut(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Comma));
+    actionConfigureKeyboardShortcuts->setStatusTip(tr("Configure the application's keyboard shortcut assignments"));
+    actionConfigureKeyboardShortcuts->setToolTip(tr("Configure the application's keyboard shortcut assignments."));
+
     QAction* actionConfigurePanels = addAction(tr("Configure &Panels..."));
     actionConfigurePanels->setObjectName("actionConfigurePanels"_L1);
     actionConfigurePanels->setIcon(QIcon::fromTheme("configure"_L1, QIcon(":/icons/actions/16/configure"_L1)));
@@ -121,6 +129,7 @@ void MainWindow::setupUi()
     menuSettings->addMenu(menuShowPanels);
     menuSettings->addAction(m_actionShowStatusbar);
     menuSettings->addSeparator();
+    menuSettings->addAction(actionConfigureKeyboardShortcuts);
     menuSettings->addAction(actionConfigurePanels);
     menuSettings->addAction(actionConfigureToolbars);
     menuSettings->addAction(actionConfigure);
@@ -146,11 +155,13 @@ void MainWindow::setupUi()
     toolbarSettings->addWidget(buttonConfigurePanels);
     toolbarSettings->addAction(m_actionShowStatusbar);
     toolbarSettings->addSeparator();
+    toolbarSettings->addAction(actionConfigureKeyboardShortcuts);
     toolbarSettings->addAction(actionConfigure);
 
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
+    connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::triggerConfigureShortcutsDialog);
     connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::triggerConfigurePanelsDialog);
     connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
     connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
@@ -238,6 +249,12 @@ void MainWindow::toggleFullScreen(bool checked)
 {
 
     updateActionFullScreen();
+
+}
+
+
+void MainWindow::triggerConfigureShortcutsDialog()
+{
 
 }
 
