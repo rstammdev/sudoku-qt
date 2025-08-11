@@ -82,12 +82,23 @@ void MainWindow::setupUi()
     m_actionShowStatusbar->setCheckable(true);
     m_actionShowStatusbar->setChecked(true);
 
+    QAction* actionConfigure = addAction(tr("&Configure..."));
+    actionConfigure->setObjectName("actionConfigure"_L1);
+    actionConfigure->setIcon(QIcon::fromTheme("configure"_L1, QIcon(":/icons/actions/16/configure"_L1)));
+    actionConfigure->setShortcut(QKeySequence::Preferences);
+    actionConfigure->setStatusTip(tr("Configure various aspects of this application"));
+    actionConfigure->setToolTip(tr("Configure various aspects of this application."));
+    actionConfigure->setMenuRole(QAction::PreferencesRole);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
+
     menuSettings->addAction(m_actionFullScreen);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
     menuSettings->addAction(m_actionShowStatusbar);
+    menuSettings->addSeparator();
+    menuSettings->addAction(actionConfigure);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
@@ -95,10 +106,13 @@ void MainWindow::setupUi()
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(m_actionShowMenubar);
     toolbarSettings->addAction(m_actionShowStatusbar);
+    toolbarSettings->addSeparator();
+    toolbarSettings->addAction(actionConfigure);
 
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
+    connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
 
 }
 
@@ -173,5 +187,11 @@ void MainWindow::toggleFullScreen(bool checked)
 {
 
     updateActionFullScreen();
+
+}
+
+
+void MainWindow::triggerConfigureDialog()
+{
 
 }
