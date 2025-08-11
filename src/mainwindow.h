@@ -25,6 +25,7 @@ protected:
 
 private slots:
     void toggleFullScreen(bool checked);
+    void triggerConfigurePanelsDialog();
     void triggerConfigureToolbarsDialog();
     void triggerConfigureDialog();
 

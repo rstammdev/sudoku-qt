@@ -83,6 +83,13 @@ void MainWindow::setupUi()
     m_actionShowStatusbar->setCheckable(true);
     m_actionShowStatusbar->setChecked(true);
 
+    QAction* actionConfigurePanels = addAction(tr("Configure &Panels..."));
+    actionConfigurePanels->setObjectName("actionConfigurePanels"_L1);
+    actionConfigurePanels->setIcon(QIcon::fromTheme("configure"_L1, QIcon(":/icons/actions/16/configure"_L1)));
+    actionConfigurePanels->setIconText(tr("Panels"));
+    actionConfigurePanels->setStatusTip(tr("Configure which items should appear in the panels"));
+    actionConfigurePanels->setToolTip(tr("Configure which items should appear in the panels."));
+
     QAction* actionConfigureToolbars = addAction(tr("Configure &Toolbars..."));
     actionConfigureToolbars->setObjectName("actionConfigureToolbars"_L1);
     actionConfigureToolbars->setIcon(QIcon::fromTheme("configure-toolbars"_L1, QIcon(":/icons/actions/16/configure-toolbars"_L1)));
@@ -110,6 +117,7 @@ void MainWindow::setupUi()
     menuSettings->addMenu(menuShowToolbars);
     menuSettings->addAction(m_actionShowStatusbar);
     menuSettings->addSeparator();
+    menuSettings->addAction(actionConfigurePanels);
     menuSettings->addAction(actionConfigureToolbars);
     menuSettings->addAction(actionConfigure);
 
@@ -132,6 +140,7 @@ void MainWindow::setupUi()
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
+    connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::triggerConfigurePanelsDialog);
     connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
     connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
 
@@ -214,6 +223,12 @@ void MainWindow::toggleFullScreen(bool checked)
 {
 
     updateActionFullScreen();
+
+}
+
+
+void MainWindow::triggerConfigurePanelsDialog()
+{
 
 }
 
