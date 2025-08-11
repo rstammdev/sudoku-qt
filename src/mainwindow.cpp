@@ -100,9 +100,13 @@ void MainWindow::setupUi()
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
 
+    QMenu* menuShowToolbars = new QMenu(tr("Toolbars Shown"), menuSettings);
+    menuShowToolbars->setObjectName("menuShowToolbars"_L1);
+
     menuSettings->addAction(m_actionFullScreen);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
+    menuSettings->addMenu(menuShowToolbars);
     menuSettings->addAction(m_actionShowStatusbar);
     menuSettings->addSeparator();
     menuSettings->addAction(actionConfigureToolbars);
@@ -122,6 +126,12 @@ void MainWindow::setupUi()
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
     connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
     connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
+
+    // Show Toolbars menu
+
+    menuShowToolbars->addSection(tr("Toolbars"));
+    menuShowToolbars->addAction(toolbarFile->toggleViewAction());
+    menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
 
 }
 
