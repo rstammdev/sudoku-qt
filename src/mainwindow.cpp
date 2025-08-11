@@ -111,10 +111,14 @@ void MainWindow::setupUi()
     QMenu* menuShowToolbars = new QMenu(tr("Toolbars Shown"), menuSettings);
     menuShowToolbars->setObjectName("menuShowToolbars"_L1);
 
+    QMenu* menuShowPanels = new QMenu(tr("Panels Shown"), menuSettings);
+    menuShowPanels->setObjectName("menuShowPanels"_L1);
+
     menuSettings->addAction(m_actionFullScreen);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
     menuSettings->addMenu(menuShowToolbars);
+    menuSettings->addMenu(menuShowPanels);
     menuSettings->addAction(m_actionShowStatusbar);
     menuSettings->addSeparator();
     menuSettings->addAction(actionConfigurePanels);
@@ -149,6 +153,10 @@ void MainWindow::setupUi()
     menuShowToolbars->addSection(tr("Toolbars"));
     menuShowToolbars->addAction(toolbarFile->toggleViewAction());
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
+
+    // Show Panels menu
+
+    menuShowPanels->addSection(tr("Panels"));
 
 }
 
