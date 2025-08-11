@@ -82,6 +82,13 @@ void MainWindow::setupUi()
     m_actionShowStatusbar->setCheckable(true);
     m_actionShowStatusbar->setChecked(true);
 
+    QAction* actionConfigureToolbars = addAction(tr("Configure &Toolbars..."));
+    actionConfigureToolbars->setObjectName("actionConfigureToolbars"_L1);
+    actionConfigureToolbars->setIcon(QIcon::fromTheme("configure-toolbars"_L1, QIcon(":/icons/actions/16/configure-toolbars"_L1)));
+    actionConfigureToolbars->setIconText(tr("Toolbars"));
+    actionConfigureToolbars->setStatusTip(tr("Configure which items should appear in the toolbars"));
+    actionConfigureToolbars->setToolTip(tr("Configure which items should appear in the toolbars."));
+
     QAction* actionConfigure = addAction(tr("&Configure..."));
     actionConfigure->setObjectName("actionConfigure"_L1);
     actionConfigure->setIcon(QIcon::fromTheme("configure"_L1, QIcon(":/icons/actions/16/configure"_L1)));
@@ -98,6 +105,7 @@ void MainWindow::setupUi()
     menuSettings->addAction(m_actionShowMenubar);
     menuSettings->addAction(m_actionShowStatusbar);
     menuSettings->addSeparator();
+    menuSettings->addAction(actionConfigureToolbars);
     menuSettings->addAction(actionConfigure);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
@@ -112,6 +120,7 @@ void MainWindow::setupUi()
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
+    connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
     connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
 
 }
@@ -187,6 +196,12 @@ void MainWindow::toggleFullScreen(bool checked)
 {
 
     updateActionFullScreen();
+
+}
+
+
+void MainWindow::triggerConfigureToolbarsDialog()
+{
 
 }
 
