@@ -10,6 +10,7 @@
 #include <QSettings>
 #include <QStatusBar>
 #include <QToolBar>
+#include <QToolButton>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -112,11 +113,18 @@ void MainWindow::setupUi()
     menuSettings->addAction(actionConfigureToolbars);
     menuSettings->addAction(actionConfigure);
 
+    QToolButton* buttonConfigureToolbars = new QToolButton;
+    buttonConfigureToolbars->setObjectName("buttonConfigureToolbars"_L1);
+    buttonConfigureToolbars->setDefaultAction(actionConfigureToolbars);
+    buttonConfigureToolbars->setMenu(menuShowToolbars);
+    buttonConfigureToolbars->setPopupMode(QToolButton::MenuButtonPopup);
+
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
     toolbarSettings->addAction(m_actionFullScreen);
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(m_actionShowMenubar);
+    toolbarSettings->addWidget(buttonConfigureToolbars);
     toolbarSettings->addAction(m_actionShowStatusbar);
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(actionConfigure);
