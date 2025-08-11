@@ -83,6 +83,13 @@ void MainWindow::setupUi()
     m_actionShowStatusbar->setCheckable(true);
     m_actionShowStatusbar->setChecked(true);
 
+    QAction* actionConfigureLanguage = addAction(tr("Configure &Language..."));
+    actionConfigureLanguage->setObjectName("actionConfigureLanguage"_L1);
+    actionConfigureLanguage->setIcon(QIcon::fromTheme("language-chooser"_L1, QIcon(":/icons/actions/16/language-chooser"_L1)));
+    actionConfigureLanguage->setIconText(tr("Language"));
+    actionConfigureLanguage->setStatusTip(tr("Configure the application's language"));
+    actionConfigureLanguage->setToolTip(tr("Configure the application's language."));
+
     QAction* actionConfigureKeyboardShortcuts = addAction(tr("Configure &Keyboard Shortcuts..."));
     actionConfigureKeyboardShortcuts->setObjectName("actionConfigureKeyboardShortcuts"_L1);
     actionConfigureKeyboardShortcuts->setIcon(QIcon::fromTheme("configure-shortcuts"_L1, QIcon(":/icons/actions/16/configure-shortcuts"_L1)));
@@ -129,6 +136,7 @@ void MainWindow::setupUi()
     menuSettings->addMenu(menuShowPanels);
     menuSettings->addAction(m_actionShowStatusbar);
     menuSettings->addSeparator();
+    menuSettings->addAction(actionConfigureLanguage);
     menuSettings->addAction(actionConfigureKeyboardShortcuts);
     menuSettings->addAction(actionConfigurePanels);
     menuSettings->addAction(actionConfigureToolbars);
@@ -155,12 +163,14 @@ void MainWindow::setupUi()
     toolbarSettings->addWidget(buttonConfigurePanels);
     toolbarSettings->addAction(m_actionShowStatusbar);
     toolbarSettings->addSeparator();
+    toolbarSettings->addAction(actionConfigureLanguage);
     toolbarSettings->addAction(actionConfigureKeyboardShortcuts);
     toolbarSettings->addAction(actionConfigure);
 
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
+    connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::triggerConfigureLanguageDialog);
     connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::triggerConfigureShortcutsDialog);
     connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::triggerConfigurePanelsDialog);
     connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
@@ -249,6 +259,12 @@ void MainWindow::toggleFullScreen(bool checked)
 {
 
     updateActionFullScreen();
+
+}
+
+
+void MainWindow::triggerConfigureLanguageDialog()
+{
 
 }
 
