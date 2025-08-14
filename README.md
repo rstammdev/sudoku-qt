@@ -5,12 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
 
-<table>
-  <tr>
-    <td valign="middle"><img src="res/icons/apps/16/sudoku-qt.svg" alt="Sudoku-Qt" width="72" height="72"></td>
-    <td valign="middle" style="padding-left:16px;"><h1>Sudoku-Qt</h1><p>Logic-based, combinatorial number-placement puzzle</p></td>
-  </tr>
-</table>
+<h1 align="center">Sudoku-Qt</h1>
+<p align="center">Logic-based, combinatorial number-placement puzzle</p>
 
 
 ## About
