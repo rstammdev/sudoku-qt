@@ -134,3 +134,11 @@ AboutPageAuthors::AboutPageAuthors(QWidget* parent)
 
     setPageTitle(tr("Authors"));
 }
+
+
+AboutPageCredits::AboutPageCredits(QWidget* parent)
+    : AboutPage{parent}
+{
+
+    setPageTitle(tr("Credits"));
+}
