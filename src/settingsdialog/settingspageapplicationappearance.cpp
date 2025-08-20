@@ -42,3 +42,9 @@ void SettingsPageApplicationAppearance::save()
 {
 
 }
+
+
+void SettingsPageApplicationAppearance::restoreDefaults(bool current)
+{
+
+}
