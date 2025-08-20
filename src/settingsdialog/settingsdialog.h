@@ -19,6 +19,9 @@ class SettingsDialog : public QDialog
 public:
     explicit SettingsDialog(QWidget* parent = nullptr);
     ~SettingsDialog() = default;
+
+signals:
+    void saveRequested();
 };
 
 #endif // SETTINGSDIALOG_H
