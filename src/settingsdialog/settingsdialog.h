@@ -30,6 +30,8 @@ signals:
 private slots:
     void setCurrentPage(QTreeWidgetItem* current);
 
+    void enableButtonApply();
+
     void saveAndClose();
     void saveAndContinue();
 

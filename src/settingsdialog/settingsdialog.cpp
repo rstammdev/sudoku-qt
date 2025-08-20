@@ -58,6 +58,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
             treeItem->setToolTip(0, page->pageDescription());
             treeItem->setData(0, Qt::UserRole, m_stackedPages->addWidget(page));
 
+            connect(page, &SettingsPage::stateChanged, this, &SettingsDialog::enableButtonApply);
             connect(this, &SettingsDialog::saveRequested, page, &SettingsPage::save);
             connect(this, &SettingsDialog::restoreDefaultsRequested, page, &SettingsPage::restoreDefaults);
         }
@@ -103,6 +104,12 @@ void SettingsDialog::setCurrentPage(QTreeWidgetItem* current)
         return;
 
     m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
+}
+
+
+void SettingsDialog::enableButtonApply()
+{
+    m_buttonApply->setEnabled(true);
 }
 
 
