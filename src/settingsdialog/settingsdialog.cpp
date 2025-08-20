@@ -10,6 +10,7 @@
 
 #include <QApplication>
 #include <QDialogButtonBox>
+#include <QHBoxLayout>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
@@ -35,6 +36,8 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     QTreeWidgetItem* treeItemRoot = nullptr;
     QTreeWidgetItem* treeItemBranch = nullptr;
 
+    m_stackedPages = new QStackedWidget;
+
     for (auto page : pages) {
 
         QTreeWidgetItem* treeItem = nullptr;
@@ -53,6 +56,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
         if (treeItem) {
             treeItem->setText(0, page->pageTitle());
             treeItem->setToolTip(0, page->pageDescription());
+            treeItem->setData(0, Qt::UserRole, m_stackedPages->addWidget(page));
 
             connect(this, &SettingsDialog::saveRequested, page, &SettingsPage::save);
             connect(this, &SettingsDialog::restoreDefaultsRequested, page, &SettingsPage::restoreDefaults);
@@ -61,6 +65,9 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
     QHBoxLayout* layoutPages = new QHBoxLayout;
     layoutPages->addWidget(treePages, 1);
+    layoutPages->addWidget(m_stackedPages, 3);
+
+    connect(treePages, &QTreeWidget::currentItemChanged, this, &SettingsDialog::setCurrentPage);
 
     // Buttons
 
@@ -87,6 +94,15 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     treePages->setCurrentItem(treePages->topLevelItem(0));
 
     m_buttonApply->setEnabled(false);
+}
+
+
+void SettingsDialog::setCurrentPage(QTreeWidgetItem* current)
+{
+    if (!current)
+        return;
+
+    m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
 }
 
 

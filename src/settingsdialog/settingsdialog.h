@@ -11,6 +11,8 @@
 
 #include <QDialog>
 #include <QPushButton>
+#include <QStackedWidget>
+#include <QTreeWidgetItem>
 
 
 class SettingsDialog : public QDialog
@@ -26,10 +28,14 @@ signals:
     void restoreDefaultsRequested(bool current);
 
 private slots:
+    void setCurrentPage(QTreeWidgetItem* current);
+
     void saveAndClose();
     void saveAndContinue();
 
 private:
+    QStackedWidget* m_stackedPages;
+
     QPushButton* m_buttonApply;
 };
 
