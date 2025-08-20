@@ -22,8 +22,10 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     QDialogButtonBox* buttonBox = new QDialogButtonBox;
 
     buttonBox->addButton(QDialogButtonBox::Close);
+    buttonBox->addButton(QDialogButtonBox::Ok);
 
     connect(buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::close);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::saveAndClose);
 
     //
 
@@ -34,4 +36,12 @@ SettingsDialog::SettingsDialog(QWidget *parent)
     setWindowTitle(tr("Configure %1").arg(QApplication::applicationName()));
     setMinimumSize(1024, 576);
 
+}
+
+
+void SettingsDialog::saveAndClose()
+{
+    emit saveRequested();
+
+    accept();
 }

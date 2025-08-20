@@ -23,6 +23,9 @@ public:
 signals:
     void saveRequested();
     void restoreDefaultsRequested(bool current);
+
+private slots:
+    void saveAndClose();
 };
 
 #endif // SETTINGSDIALOG_H
