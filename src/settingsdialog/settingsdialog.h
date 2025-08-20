@@ -10,6 +10,7 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QPushButton>
 
 
 class SettingsDialog : public QDialog
@@ -26,6 +27,10 @@ signals:
 
 private slots:
     void saveAndClose();
+    void saveAndContinue();
+
+private:
+    QPushButton* m_buttonApply;
 };
 
 #endif // SETTINGSDIALOG_H
