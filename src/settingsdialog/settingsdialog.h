@@ -22,6 +22,7 @@ public:
 
 signals:
     void saveRequested();
+    void restoreDefaultsRequested(bool current);
 };
 
 #endif // SETTINGSDIALOG_H
