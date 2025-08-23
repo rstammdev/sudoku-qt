@@ -98,7 +98,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     m_buttonRestoreDefaults->setPopupMode(QToolButton::MenuButtonPopup);
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox;
-    buttonBox->addButton(QDialogButtonBox::Close);
+    buttonBox->addButton(QDialogButtonBox::Cancel);
     buttonBox->addButton(QDialogButtonBox::Ok);
     m_buttonApply = buttonBox->addButton(QDialogButtonBox::Apply);
     buttonBox->addButton(m_buttonRestoreDefaults, QDialogButtonBox::ResetRole);
