@@ -8,10 +8,29 @@
 
 #include "settingspageconfirmations.h"
 
+#include <QLabel>
+#include <QVBoxLayout>
+
 
 SettingsPageConfirmations::SettingsPageConfirmations(QWidget* parent)
     : SettingsPage{parent}
 {
+    QLabel* title = new QLabel(tr("<strong style=\"font-size: large;\">%1</strong>").arg(tr("Confirmations")));
+    QLabel* description = new QLabel(tr("Specify which confirmation dialogs should be shown."));
+
+
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addWidget(title);
+    layout->addWidget(description);
+    layout->addStretch();
+
+    QWidget* widget = new QWidget(parent);
+    widget->setLayout(layout);
+
+    setWidget(widget);
+    setWidgetResizable(true);
+    setFrameShape(QFrame::NoFrame);
 
     setPageType(SettingsPage::PageTypeRoot);
     setPageTitle(tr("Confirmations"));
