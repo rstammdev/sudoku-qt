@@ -42,7 +42,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
     m_stackedPages = new QStackedWidget;
 
-    for (auto page : pages) {
+    for (const auto page : pages) {
 
         QTreeWidgetItem* treeItem = nullptr;
 
@@ -97,9 +97,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     m_buttonRestoreDefaults->setMenu(menuRestoreDefaults);
     m_buttonRestoreDefaults->setPopupMode(QToolButton::MenuButtonPopup);
 
-    QDialogButtonBox* buttonBox = new QDialogButtonBox;
-    buttonBox->addButton(QDialogButtonBox::Cancel);
-    buttonBox->addButton(QDialogButtonBox::Ok);
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     m_buttonApply = buttonBox->addButton(QDialogButtonBox::Apply);
     buttonBox->addButton(m_buttonRestoreDefaults, QDialogButtonBox::ResetRole);
 
@@ -128,10 +126,8 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
 void SettingsDialog::setCurrentPage(QTreeWidgetItem* current)
 {
-    if (!current)
-        return;
-
-    m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
+    if (current)
+        m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
 }
 
 

@@ -16,17 +16,17 @@ SettingsPageApplication::SettingsPageApplication(QWidget* parent)
     : SettingsPage{parent}
 {
     QLabel* title = new QLabel(tr("<strong style=\"font-size: large;\">%1</strong>").arg(tr("Application")));
-
     QLabel* description = new QLabel(tr("Configure the general settings of the application."));
 
 
 
-    QWidget* widget = new QWidget(parent);
-
-    QVBoxLayout* layout = new QVBoxLayout(widget);
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(title);
     layout->addWidget(description);
     layout->addStretch();
+
+    QWidget* widget = new QWidget(parent);
+    widget->setLayout(layout);
 
     setWidget(widget);
     setWidgetResizable(true);
