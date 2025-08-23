@@ -36,3 +36,9 @@ SettingsPageConfirmations::SettingsPageConfirmations(QWidget* parent)
     setPageTitle(tr("Confirmations"));
     setPageDescription(tr("Specify which confirmation dialogs should be shown."));
 }
+
+
+void SettingsPageConfirmations::save()
+{
+
+}
