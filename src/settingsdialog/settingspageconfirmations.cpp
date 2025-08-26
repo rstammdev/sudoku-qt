@@ -21,6 +21,7 @@ SettingsPageConfirmations::SettingsPageConfirmations(QWidget* parent)
 
 
     QVBoxLayout* layout = new QVBoxLayout;
+    layout->setContentsMargins(-1, -1, 0, 0);
     layout->addWidget(title);
     layout->addWidget(description);
     layout->addStretch();
