@@ -22,7 +22,6 @@
 #include "settingspagecomponents.h"
 #include "settingspageconfirmations.h"
 
-
 using namespace Qt::Literals::StringLiterals;
 
 
