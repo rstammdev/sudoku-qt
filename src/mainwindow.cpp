@@ -64,7 +64,7 @@ void MainWindow::setupUi()
 
 
 
-    m_actionEnlargeFont = addAction(tr("Enlarge Font"));
+    m_actionEnlargeFont = addAction(tr("&Enlarge Font"));
     m_actionEnlargeFont->setObjectName("actionEnlargeFont"_L1);
     m_actionEnlargeFont->setIcon(QIcon::fromTheme("zoom-in"_L1, QIcon(":/icons/actions/16/zoom-in"_L1)));
     m_actionEnlargeFont->setIconText(tr("Zoom In"));
@@ -72,7 +72,7 @@ void MainWindow::setupUi()
     m_actionEnlargeFont->setStatusTip(tr("This increases the display font size"));
     m_actionEnlargeFont->setToolTip(tr("This increases the display font size."));
 
-    m_actionShrinkFont = addAction(tr("Shrink Font"));
+    m_actionShrinkFont = addAction(tr("S&hrink Font"));
     m_actionShrinkFont->setObjectName("actionShrinkFont"_L1);
     m_actionShrinkFont->setIcon(QIcon::fromTheme("zoom-out"_L1, QIcon(":/icons/actions/16/zoom-out"_L1)));
     m_actionShrinkFont->setIconText(tr("Zoom Out"));
@@ -80,7 +80,7 @@ void MainWindow::setupUi()
     m_actionShrinkFont->setStatusTip(tr("This decreases the display font size"));
     m_actionShrinkFont->setToolTip(tr("This decreases the display font size."));
 
-    m_actionResetFontSize = addAction(tr("Reset Font Size"));
+    m_actionResetFontSize = addAction(tr("&Reset Font Size"));
     m_actionResetFontSize->setObjectName("actionShrinkFont"_L1);
     m_actionResetFontSize->setIcon(QIcon::fromTheme("zoom-original"_L1, QIcon(":/icons/actions/16/zoom-original"_L1)));
     m_actionResetFontSize->setIconText(tr("Zoom Original"));
