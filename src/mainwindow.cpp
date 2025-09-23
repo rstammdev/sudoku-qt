@@ -25,6 +25,7 @@
 
 #include "aboutdialog/aboutdialog.h"
 #include "gamecontrolspanel/gamecontrolsunitscoreboard.h"
+#include "gamecontrolspanel/gamecontrolsunitstatistics.h"
 #include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;
@@ -314,9 +315,13 @@ void MainWindow::setupUi()
     GameControlsUnitScoreBoard* unitGameControlsScoreBoard = new GameControlsUnitScoreBoard;
     unitGameControlsScoreBoard->setObjectName("unitGameControlsScoreBoard"_L1);
 
+    GameControlsUnitStatistics* unitGameControlsStatistics = new GameControlsUnitStatistics;
+    unitGameControlsStatistics->setObjectName("unitGameControlsStatistics"_L1);
+
     QVBoxLayout* layoutGameControls = new QVBoxLayout;
     layoutGameControls->setObjectName("layoutGameControls"_L1);
     layoutGameControls->addWidget(unitGameControlsScoreBoard);
+    layoutGameControls->addWidget(unitGameControlsStatistics);
     layoutGameControls->addStretch();
 
     QWidget* widgetGameControls = new QWidget;
