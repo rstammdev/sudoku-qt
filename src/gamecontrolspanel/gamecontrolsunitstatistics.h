@@ -18,6 +18,9 @@ class GameControlsUnitStatistics : public QxPanelUnit
 
 public:
     explicit GameControlsUnitStatistics(QWidget* parent = nullptr);
+
+signals:
+    void updateMistakesCounterRequested(const QString& text);
 };
 
 #endif // GAMECONTROLSUNITSTATISTICS_H
