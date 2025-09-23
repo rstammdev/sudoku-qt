@@ -336,6 +336,7 @@ void MainWindow::setupUi()
     // Show Panels menu
 
     menuShowPanels->addSection(tr("Panels"));
+    menuShowPanels->addAction(panelGameControls->toggleViewAction());
 
 }
 
