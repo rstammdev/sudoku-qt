@@ -15,6 +15,7 @@
 #include <QStatusBar>
 #include <QToolBar>
 #include <QToolButton>
+#include <QVBoxLayout>
 
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
@@ -23,6 +24,7 @@
 #include <qxzoombutton.h>
 
 #include "aboutdialog/aboutdialog.h"
+#include "gamecontrolspanel/gamecontrolsunitscoreboard.h"
 #include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;
@@ -309,8 +311,21 @@ void MainWindow::setupUi()
 
     // Game Controls panel
 
+    GameControlsUnitScoreBoard* unitGameControlsScoreBoard = new GameControlsUnitScoreBoard;
+    unitGameControlsScoreBoard->setObjectName("unitGameControlsScoreBoard"_L1);
+
+    QVBoxLayout* layoutGameControls = new QVBoxLayout;
+    layoutGameControls->setObjectName("layoutGameControls"_L1);
+    layoutGameControls->addWidget(unitGameControlsScoreBoard);
+    layoutGameControls->addStretch();
+
+    QWidget* widgetGameControls = new QWidget;
+    widgetGameControls->setObjectName("widgetGameControls"_L1);
+    widgetGameControls->setLayout(layoutGameControls);
+
     QxPanelPalette* panelGameControls = new QxPanelPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
+    panelGameControls->setWidget(widgetGameControls);
     addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
 
     // Show Panels menu
