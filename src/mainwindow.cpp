@@ -18,6 +18,7 @@
 
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
+#include <qxpanelpalette.h>
 #include <qxtoolbarsdialog.h>
 #include <qxzoombutton.h>
 
@@ -33,6 +34,8 @@ MainWindow::MainWindow(QWidget* parent)
 
     setupUi();
     loadSettings();
+
+    setCentralWidget(new QWidget);
 
     setWindowIcon(QIcon::fromTheme("sudoku-qt"_L1, QIcon(":/icons/apps/16/sudoku-qt"_L1)));
     setMinimumSize(854, 480);
@@ -303,6 +306,12 @@ void MainWindow::setupUi()
     menuShowToolbars->addAction(toolbarView->toggleViewAction());
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
     menuShowToolbars->addAction(toolbarHelp->toggleViewAction());
+
+    // Game Controls panel
+
+    QxPanelPalette* panelGameControls = new QxPanelPalette(tr("Game Controls Panel"), this);
+    panelGameControls->setObjectName("panelGameControls"_L1);
+    addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
 
     // Show Panels menu
 
