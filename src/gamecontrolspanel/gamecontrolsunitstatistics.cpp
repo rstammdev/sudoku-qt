@@ -41,17 +41,26 @@ GameControlsUnitStatistics::GameControlsUnitStatistics(QWidget* parent)
     QLabel* labelTimerTime = new QLabel(tr("00:00:00"));
     labelTimerTime->setObjectName("labelTimerTime"_L1);
 
+    QLabel* labelHintsLabel = new QLabel(tr("Hints"));
+    labelHintsLabel->setObjectName("labelHintsLabel"_L1);
+
+    QLabel* labelHintsCounter = new QLabel(tr("1/3"));
+    labelHintsCounter->setObjectName("labelHintsCounter"_L1);
+
     QGridLayout* layout = new QGridLayout;
     layout->setObjectName("layout"_L1);
     layout->addWidget(labelMistakesLabel, 0, 0);
     layout->addWidget(labelMistakesCounter, 1, 0);
     layout->addWidget(buttonTimer, 0, 1, Qt::AlignCenter);
     layout->addWidget(labelTimerTime, 1, 1, Qt::AlignCenter);
+    layout->addWidget(labelHintsLabel, 0, 2, Qt::AlignRight);
+    layout->addWidget(labelHintsCounter, 1, 2, Qt::AlignRight);
     setLayout(layout);
 
     connect(buttonTimer, &QPushButton::toggled, this, &GameControlsUnitStatistics::buttonTimerToggled);
     connect(this, &GameControlsUnitStatistics::updateMistakesCounterRequested, labelMistakesCounter, &QLabel::setText);
     connect(this, &GameControlsUnitStatistics::updateTimerTimeRequested, labelTimerTime, &QLabel::setText);
+    connect(this, &GameControlsUnitStatistics::updateHintsCounterRequested, labelHintsCounter, &QLabel::setText);
 
     setUnitDisplayMode(QxPanelUnit::FrameBox);
     setUnitTitle(tr("Statistics"));

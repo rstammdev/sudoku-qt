@@ -24,6 +24,7 @@ signals:
 
     void updateMistakesCounterRequested(const QString& text);
     void updateTimerTimeRequested(const QString& text);
+    void updateHintsCounterRequested(const QString& text);
 };
 
 #endif // GAMECONTROLSUNITSTATISTICS_H
