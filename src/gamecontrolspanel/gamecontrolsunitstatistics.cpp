@@ -44,7 +44,7 @@ GameControlsUnitStatistics::GameControlsUnitStatistics(QWidget* parent)
     QLabel* labelHintsLabel = new QLabel(tr("Hints"));
     labelHintsLabel->setObjectName("labelHintsLabel"_L1);
 
-    QLabel* labelHintsCounter = new QLabel(tr("1/3"));
+    QLabel* labelHintsCounter = new QLabel(tr("0/3"));
     labelHintsCounter->setObjectName("labelHintsCounter"_L1);
 
     QGridLayout* layout = new QGridLayout;
