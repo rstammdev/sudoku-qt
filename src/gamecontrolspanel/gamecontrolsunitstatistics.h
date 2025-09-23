@@ -20,7 +20,10 @@ public:
     explicit GameControlsUnitStatistics(QWidget* parent = nullptr);
 
 signals:
+    void buttonTimerToggled(const bool checked);
+
     void updateMistakesCounterRequested(const QString& text);
+    void updateTimerTimeRequested(const QString& text);
 };
 
 #endif // GAMECONTROLSUNITSTATISTICS_H
