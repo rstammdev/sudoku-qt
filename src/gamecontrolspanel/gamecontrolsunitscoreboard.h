@@ -18,6 +18,9 @@ class GameControlsUnitScoreBoard : public QxPanelUnit
 
 public:
     explicit GameControlsUnitScoreBoard(QWidget* parent = nullptr);
+
+signals:
+    void updateScoresRequested(const QString& text);
 };
 
 #endif // GAMECONTROLSUNITSCOREBOARD_H
