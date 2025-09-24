@@ -18,6 +18,9 @@ class GameControlsUnitNewGame : public QxPanelUnit
 
 public:
     explicit GameControlsUnitNewGame(QWidget* parent = nullptr);
+
+signals:
+    void buttonNewGameClicked();
 };
 
 #endif // GAMECONTROLSUNITNEWGAME_H
