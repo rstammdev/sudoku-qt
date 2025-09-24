@@ -21,6 +21,7 @@ public:
 
 signals:
     void buttonUndoClicked();
+    void buttonEraseClicked();
 };
 
 #endif // GAMECONTROLSUNITCONTROLS_H
