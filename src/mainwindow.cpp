@@ -343,6 +343,8 @@ void MainWindow::setupUi()
     panelGameControls->setWidget(widgetGameControls);
     addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
 
+    connect(unitGameControlsControls, &GameControlsUnitControls::buttonNotesToggled, unitGameControlsNumberPad, &GameControlsUnitNumberPad::updateButtonStyleRequested);
+
     // Show Panels menu
 
     menuShowPanels->addSection(tr("Panels"));

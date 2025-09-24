@@ -21,6 +21,9 @@ class GameControlsUnitNumberPad : public QxPanelUnit
 public:
     explicit GameControlsUnitNumberPad(QWidget* parent = nullptr);
 
+public slots:
+    void updateButtonStyleRequested(const bool checked);
+
 signals:
     void buttonClicked(const int number);
 

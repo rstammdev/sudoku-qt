@@ -8,6 +8,8 @@
 
 #include "gamecontrolsunitnumberpad.h"
 
+#include <QAbstractButton>
+#include <QFont>
 #include <QGridLayout>
 #include <QPushButton>
 
@@ -73,4 +75,15 @@ GameControlsUnitNumberPad::GameControlsUnitNumberPad(QWidget* parent)
 
     setUnitDisplayMode(QxPanelUnit::FrameBox);
     setUnitTitle(tr("Number Pad"));
+}
+
+
+void GameControlsUnitNumberPad::updateButtonStyleRequested(const bool checked)
+{
+    for (QAbstractButton* button : m_buttonsNumbers->buttons()) {
+
+        QFont font = button->font();
+        font.setItalic(checked);
+        button->setFont(font);
+    }
 }
