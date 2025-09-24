@@ -30,16 +30,22 @@ GameControlsUnitControls::GameControlsUnitControls(QWidget* parent)
     buttonNotes->setIcon(QIcon::fromTheme("edit-entry"_L1, QIcon(":/icons/actions/16/edit-entry"_L1)));
     buttonNotes->setCheckable(true);
 
+    QPushButton* buttonHint = new QPushButton;
+    buttonHint->setObjectName("buttonHint"_L1);
+    buttonHint->setIcon(QIcon::fromTheme("games-hint"_L1, QIcon(":/icons/actions/16/games-hint"_L1)));
+
     QHBoxLayout* layout = new QHBoxLayout;
     layout->setObjectName("layout"_L1);
     layout->addWidget(buttonUndo);
     layout->addWidget(buttonErase);
     layout->addWidget(buttonNotes);
+    layout->addWidget(buttonHint);
     setLayout(layout);
 
     connect(buttonUndo, &QPushButton::clicked, this, &GameControlsUnitControls::buttonUndoClicked);
     connect(buttonErase, &QPushButton::clicked, this, &GameControlsUnitControls::buttonEraseClicked);
     connect(buttonNotes, &QPushButton::toggled, this, &GameControlsUnitControls::buttonNotesToggled);
+    connect(buttonHint, &QPushButton::clicked, this, &GameControlsUnitControls::buttonHintClicked);
 
     setUnitDisplayMode(QxPanelUnit::FrameBox);
     setUnitTitle(tr("Controls"));

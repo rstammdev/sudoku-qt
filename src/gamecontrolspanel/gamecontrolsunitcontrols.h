@@ -23,6 +23,7 @@ signals:
     void buttonUndoClicked();
     void buttonEraseClicked();
     void buttonNotesToggled(const bool checked);
+    void buttonHintClicked();
 };
 
 #endif // GAMECONTROLSUNITCONTROLS_H
