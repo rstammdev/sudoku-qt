@@ -24,6 +24,7 @@
 #include <qxzoombutton.h>
 
 #include "aboutdialog/aboutdialog.h"
+#include "gamecontrolspanel/gamecontrolsunitcontrols.h"
 #include "gamecontrolspanel/gamecontrolsunitscoreboard.h"
 #include "gamecontrolspanel/gamecontrolsunitstatistics.h"
 #include "settingsdialog/settingsdialog.h"
@@ -318,10 +319,14 @@ void MainWindow::setupUi()
     GameControlsUnitStatistics* unitGameControlsStatistics = new GameControlsUnitStatistics;
     unitGameControlsStatistics->setObjectName("unitGameControlsStatistics"_L1);
 
+    GameControlsUnitControls* unitGameControlsControls = new GameControlsUnitControls;
+    unitGameControlsControls->setObjectName("unitGameControlsControls"_L1);
+
     QVBoxLayout* layoutGameControls = new QVBoxLayout;
     layoutGameControls->setObjectName("layoutGameControls"_L1);
     layoutGameControls->addWidget(unitGameControlsScoreBoard);
     layoutGameControls->addWidget(unitGameControlsStatistics);
+    layoutGameControls->addWidget(unitGameControlsControls);
     layoutGameControls->addStretch();
 
     QWidget* widgetGameControls = new QWidget;
