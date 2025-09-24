@@ -13,6 +13,7 @@
         <file alias="document-revert">icons/actions/16/document-revert.svg</file>
         <file alias="draw-eraser">icons/actions/16/draw-eraser.svg</file>
         <file alias="info">icons/actions/16/help-about.svg</file>
+        <file alias="edit-entry">icons/actions/16/document-edit.svg</file>
         <file alias="edit-undo">icons/actions/16/edit-undo.svg</file>
         <file alias="language-chooser">icons/actions/16/translate.svg</file>
         <file alias="media-playback-pause">icons/actions/16/media-playback-pause.svg</file>

@@ -22,6 +22,7 @@ public:
 signals:
     void buttonUndoClicked();
     void buttonEraseClicked();
+    void buttonNotesToggled(const bool checked);
 };
 
 #endif // GAMECONTROLSUNITCONTROLS_H
