@@ -26,6 +26,7 @@ HEADERS += \
     src/aboutdialog/aboutpage.h \
     src/aboutdialog/aboutpagecontent.h \
     src/gamecontrolspanel/gamecontrolsunitcontrols.h \
+    src/gamecontrolspanel/gamecontrolsunitnewgame.h \
     src/gamecontrolspanel/gamecontrolsunitnumberpad.h \
     src/gamecontrolspanel/gamecontrolsunitscoreboard.h \
     src/gamecontrolspanel/gamecontrolsunitstatistics.h \
@@ -42,6 +43,7 @@ SOURCES += \
     src/aboutdialog/aboutpage.cpp \
     src/aboutdialog/aboutpagecontent.cpp \
     src/gamecontrolspanel/gamecontrolsunitcontrols.cpp \
+    src/gamecontrolspanel/gamecontrolsunitnewgame.cpp \
     src/gamecontrolspanel/gamecontrolsunitnumberpad.cpp \
     src/gamecontrolspanel/gamecontrolsunitscoreboard.cpp \
     src/gamecontrolspanel/gamecontrolsunitstatistics.cpp \
