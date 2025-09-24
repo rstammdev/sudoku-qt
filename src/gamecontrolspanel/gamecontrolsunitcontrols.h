@@ -18,6 +18,9 @@ class GameControlsUnitControls : public QxPanelUnit
 
 public:
     explicit GameControlsUnitControls(QWidget* parent = nullptr);
+
+signals:
+    void buttonUndoClicked();
 };
 
 #endif // GAMECONTROLSUNITCONTROLS_H
