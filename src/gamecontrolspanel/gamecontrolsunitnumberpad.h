@@ -11,6 +11,8 @@
 
 #include <qxpanelunit.h>
 
+#include <QButtonGroup>
+
 
 class GameControlsUnitNumberPad : public QxPanelUnit
 {
@@ -18,6 +20,12 @@ class GameControlsUnitNumberPad : public QxPanelUnit
 
 public:
     explicit GameControlsUnitNumberPad(QWidget* parent = nullptr);
+
+signals:
+    void buttonClicked(const int number);
+
+private:
+    QButtonGroup* m_buttonsNumbers;
 };
 
 #endif // GAMECONTROLSUNITNUMBERPAD_H
