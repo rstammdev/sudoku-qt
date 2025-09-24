@@ -25,6 +25,7 @@
 
 #include "aboutdialog/aboutdialog.h"
 #include "gamecontrolspanel/gamecontrolsunitcontrols.h"
+#include "gamecontrolspanel/gamecontrolsunitnewgame.h"
 #include "gamecontrolspanel/gamecontrolsunitnumberpad.h"
 #include "gamecontrolspanel/gamecontrolsunitscoreboard.h"
 #include "gamecontrolspanel/gamecontrolsunitstatistics.h"
@@ -326,12 +327,16 @@ void MainWindow::setupUi()
     GameControlsUnitNumberPad* unitGameControlsNumberPad = new GameControlsUnitNumberPad;
     unitGameControlsNumberPad->setObjectName("unitGameControlsNumberPad"_L1);
 
+    GameControlsUnitNewGame* unitGameControlsNewGame = new GameControlsUnitNewGame;
+    unitGameControlsNewGame->setObjectName("unitGameControlsNewGame"_L1);
+
     QVBoxLayout* layoutGameControls = new QVBoxLayout;
     layoutGameControls->setObjectName("layoutGameControls"_L1);
     layoutGameControls->addWidget(unitGameControlsScoreBoard);
     layoutGameControls->addWidget(unitGameControlsStatistics);
     layoutGameControls->addWidget(unitGameControlsControls);
     layoutGameControls->addWidget(unitGameControlsNumberPad);
+    layoutGameControls->addWidget(unitGameControlsNewGame);
     layoutGameControls->addStretch();
 
     QWidget* widgetGameControls = new QWidget;
