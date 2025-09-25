@@ -330,22 +330,13 @@ void MainWindow::setupUi()
     GameControlsUnitNewGame* unitGameControlsNewGame = new GameControlsUnitNewGame;
     unitGameControlsNewGame->setObjectName("unitGameControlsNewGame"_L1);
 
-    QVBoxLayout* layoutGameControls = new QVBoxLayout;
-    layoutGameControls->setObjectName("layoutGameControls"_L1);
-    layoutGameControls->addWidget(unitGameControlsScoreBoard);
-    layoutGameControls->addWidget(unitGameControlsStatistics);
-    layoutGameControls->addWidget(unitGameControlsControls);
-    layoutGameControls->addWidget(unitGameControlsNumberPad);
-    layoutGameControls->addWidget(unitGameControlsNewGame);
-    layoutGameControls->addStretch();
-
-    QWidget* widgetGameControls = new QWidget;
-    widgetGameControls->setObjectName("widgetGameControls"_L1);
-    widgetGameControls->setLayout(layoutGameControls);
-
     QxPanelPalette* panelGameControls = new QxPanelPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
-    panelGameControls->setWidget(widgetGameControls);
+    panelGameControls->addUnit(unitGameControlsScoreBoard);
+    panelGameControls->addUnit(unitGameControlsStatistics);
+    panelGameControls->addUnit(unitGameControlsControls);
+    panelGameControls->addUnit(unitGameControlsNumberPad);
+    panelGameControls->addUnit(unitGameControlsNewGame);
     addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
 
     connect(unitGameControlsControls, &GameControlsUnitControls::buttonNotesToggled, unitGameControlsNumberPad, &GameControlsUnitNumberPad::updateButtonStyleRequested);
