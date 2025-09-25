@@ -73,7 +73,7 @@ GameControlsUnitNumberPad::GameControlsUnitNumberPad(QWidget* parent)
 
     connect(m_buttonsNumbers, &QButtonGroup::idClicked, this, &GameControlsUnitNumberPad::buttonClicked);
 
-    setUnitType(QxPanelUnit::FrameBox);
+    setUnitType(QxPanelUnit::FlatBox);
     setUnitTitle(tr("Number Pad"));
 }
 
