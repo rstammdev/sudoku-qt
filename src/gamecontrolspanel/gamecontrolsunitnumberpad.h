@@ -11,6 +11,7 @@
 
 #include <qxpanelunit.h>
 
+#include <QAbstractButton>
 #include <QButtonGroup>
 
 
@@ -22,6 +23,7 @@ public:
     explicit GameControlsUnitNumberPad(QWidget* parent = nullptr);
 
 public slots:
+    void updateButtonStatusRequested(const int number, const bool checked);
     void updateButtonStyleRequested(const bool checked);
 
 signals:
@@ -29,6 +31,8 @@ signals:
 
 private:
     QButtonGroup* m_buttonsNumbers;
+
+    void setButtonStyle(QAbstractButton* button, const bool checked);
 };
 
 #endif // GAMECONTROLSUNITNUMBERPAD_H
