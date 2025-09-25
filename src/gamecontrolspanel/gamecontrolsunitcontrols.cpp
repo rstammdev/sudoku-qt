@@ -47,6 +47,6 @@ GameControlsUnitControls::GameControlsUnitControls(QWidget* parent)
     connect(buttonNotes, &QPushButton::toggled, this, &GameControlsUnitControls::buttonNotesToggled);
     connect(buttonHint, &QPushButton::clicked, this, &GameControlsUnitControls::buttonHintClicked);
 
-    setUnitDisplayMode(QxPanelUnit::FrameBox);
+    setUnitType(QxPanelUnit::FrameBox);
     setUnitTitle(tr("Controls"));
 }

@@ -27,6 +27,6 @@ GameControlsUnitNewGame::GameControlsUnitNewGame(QWidget* parent)
 
     connect(buttonNewGame, &QPushButton::clicked, this, &GameControlsUnitNewGame::buttonNewGameClicked);
 
-    setUnitDisplayMode(QxPanelUnit::FrameBox);
+    setUnitType(QxPanelUnit::FrameBox);
     setUnitTitle(tr("New Game"));
 }

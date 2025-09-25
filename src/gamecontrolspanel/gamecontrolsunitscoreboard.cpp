@@ -28,7 +28,7 @@ GameControlsUnitScoreBoard::GameControlsUnitScoreBoard(QWidget* parent)
 
     connect(this, &GameControlsUnitScoreBoard::updateScoresRequested, labelScores, &QLabel::setText);
 
-    setUnitDisplayMode(QxPanelUnit::FrameBox);
+    setUnitType(QxPanelUnit::FrameBox);
     setUnitTitle(tr("Scores"));
 
     QFont fontScores = labelScores->font();

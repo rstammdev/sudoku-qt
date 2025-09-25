@@ -62,6 +62,6 @@ GameControlsUnitStatistics::GameControlsUnitStatistics(QWidget* parent)
     connect(this, &GameControlsUnitStatistics::updateTimerTimeRequested, labelTimerTime, &QLabel::setText);
     connect(this, &GameControlsUnitStatistics::updateHintsCounterRequested, labelHintsCounter, &QLabel::setText);
 
-    setUnitDisplayMode(QxPanelUnit::FrameBox);
+    setUnitType(QxPanelUnit::FrameBox);
     setUnitTitle(tr("Statistics"));
 }
