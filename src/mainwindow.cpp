@@ -8,7 +8,9 @@
 
 #include "mainwindow.h"
 
+#include <QActionGroup>
 #include <QApplication>
+#include <QList>
 #include <QMenu>
 #include <QMenuBar>
 #include <QSettings>
@@ -55,6 +57,12 @@ MainWindow::~MainWindow() {}
 
 void MainWindow::setupUi()
 {
+    QActionGroup* actionsSudokuGames = new QActionGroup(this);
+    actionsSudokuGames->setObjectName(QStringLiteral("actionsSudokuGames"));
+    actionsSudokuGames->setExclusionPolicy(QActionGroup::ExclusionPolicy::ExclusiveOptional);
+
+    connect(actionsSudokuGames, &QActionGroup::triggered, this, &MainWindow::applySudokuGame);
+
     // File menu & toolbar
 
     QAction* actionQuit = addAction(tr("&Quit"));
@@ -78,8 +86,25 @@ void MainWindow::setupUi()
 
     // Sudoku Classic menu & toolbar
 
+    QList<QAction*> actionsSudokuClassic;
+
+    for (const QStringList& game : Sudoku::gamesClassic()) {
+
+        QAction* action = addAction(game[1]);
+        action->setObjectName("action_%1"_L1.arg(game[0]));
+        action->setIconText(game[2]);
+        action->setToolTip(tr("Sudoku Classic<br><strong>%1</strong><br>%2.").arg(game[1], game[3]));
+        action->setStatusTip(tr("Sudoku Classic %1: %2").arg(game[1], game[3]));
+        action->setCheckable(true);
+        action->setData(game[0]);
+
+        actionsSudokuGames->addAction(action);
+        actionsSudokuClassic.append(action);
+    }
+
     QMenu* menuSudokuClassic = menuBar()->addMenu(tr("Sudoku &Classic"));
     menuSudokuClassic->setObjectName("menuSudokuClassic"_L1);
+    menuSudokuClassic->addActions(actionsSudokuClassic);
 
     QxToolLabel* labelSudokuClassic = new QxToolLabel(tr("Classic"));
     labelSudokuClassic->setObjectName("labelSudokuClassic"_L1);
@@ -89,6 +114,7 @@ void MainWindow::setupUi()
     QToolBar* toolbarSudokuClassic = addToolBar(tr("Sudoku Classic Toolbar"));
     toolbarSudokuClassic->setObjectName("toolbarSudokuClassic"_L1);
     toolbarSudokuClassic->addWidget(labelSudokuClassic);
+    toolbarSudokuClassic->addActions(actionsSudokuClassic);
 
     // View menu & toolbar
 
@@ -432,6 +458,12 @@ void MainWindow::saveSettings()
 
     const bool statusbar = m_actionShowStatusbar->isChecked();
     settings.setValue("Application/Statusbar"_L1, statusbar);
+}
+
+
+void MainWindow::applySudokuGame(QAction* action)
+{
+    Q_UNUSED(action);
 }
 
 

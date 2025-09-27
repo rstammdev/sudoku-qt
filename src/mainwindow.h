@@ -26,6 +26,8 @@ protected:
     void closeEvent(QCloseEvent* event) override;
 
 private slots:
+    void applySudokuGame(QAction* action);
+
     void applyZoomFactor(const qreal factor);
     void toggleFullScreen(const bool checked);
 
