@@ -116,10 +116,13 @@ void MainWindow::setupUi()
     toolbarSudokuClassic->addWidget(labelSudokuClassic);
     toolbarSudokuClassic->addActions(actionsSudokuClassic);
 
-    // Sudoku Killer menu
+    // Sudoku Killer menu & toolbar
 
     QMenu* menuSudokuKiller = menuBar()->addMenu(tr("Sudoku &Killer"));
     menuSudokuKiller->setObjectName("menuSudokuKiller"_L1);
+
+    QToolBar* toolbarSudokuKiller = addToolBar(tr("Sudoku Killer Toolbar"));
+    toolbarSudokuKiller->setObjectName("toolbarSudokuKiller"_L1);
 
     // View menu & toolbar
 
@@ -357,6 +360,7 @@ void MainWindow::setupUi()
     menuShowToolbars->addSection(tr("Toolbars"));
     menuShowToolbars->addAction(toolbarFile->toggleViewAction());
     menuShowToolbars->addAction(toolbarSudokuClassic->toggleViewAction());
+    menuShowToolbars->addAction(toolbarSudokuKiller->toggleViewAction());
     menuShowToolbars->addAction(toolbarView->toggleViewAction());
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
     menuShowToolbars->addAction(toolbarHelp->toggleViewAction());
