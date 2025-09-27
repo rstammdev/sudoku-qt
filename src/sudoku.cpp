@@ -29,3 +29,16 @@ const QList<QStringList> Sudoku::gamesClassic()
         { "sudoku_classic_extreme"_L1, tr("Extreme Level"), tr("Extreme"), tr("Brutal logic, unforgiving puzzles, mastery") },
     };
 }
+
+
+const QList<QStringList> Sudoku::gamesKiller()
+{
+    // Killer Games: Id, Name, Short Name, Brief Description
+
+    return QList<QStringList> {
+        { "sudoku_killer_easy"_L1, tr("Easy Level"), tr("Easy"), tr("Simple patterns, many hints, gentle") },
+        { "sudoku_killer_medium"_L1, tr("Medium Level"), tr("Medium"), tr("Standard techniques, moderate logic challenge") },
+        { "sudoku_killer_hard"_L1, tr("Hard Level"), tr("Hard"), tr("Fewer givens, advanced strategies required") },
+        { "sudoku_killer_expert"_L1, tr("Expert Level"), tr("Expert"), tr("Complex deductions, minimal guidance, precision") },
+    };
+}

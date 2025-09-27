@@ -20,6 +20,7 @@ class Sudoku : public QObject
 
 public:
     static const QList<QStringList> gamesClassic();
+    static const QList<QStringList> gamesKiller();
 
 private:
     explicit Sudoku(QObject* parent = nullptr);
