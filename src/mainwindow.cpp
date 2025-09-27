@@ -116,6 +116,11 @@ void MainWindow::setupUi()
     toolbarSudokuClassic->addWidget(labelSudokuClassic);
     toolbarSudokuClassic->addActions(actionsSudokuClassic);
 
+    // Sudoku Killer menu
+
+    QMenu* menuSudokuKiller = menuBar()->addMenu(tr("Sudoku &Killer"));
+    menuSudokuKiller->setObjectName("menuSudokuKiller"_L1);
+
     // View menu & toolbar
 
 
