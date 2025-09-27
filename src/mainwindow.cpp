@@ -21,6 +21,7 @@
 #include <qxconfirmationbox.h>
 #include <qxpanelpalette.h>
 #include <qxtoolbarsdialog.h>
+#include <qxtoollabel.h>
 #include <qxzoombutton.h>
 
 #include "aboutdialog/aboutdialog.h"
@@ -80,8 +81,14 @@ void MainWindow::setupUi()
     QMenu* menuSudokuClassic = menuBar()->addMenu(tr("Sudoku &Classic"));
     menuSudokuClassic->setObjectName("menuSudokuClassic"_L1);
 
+    QxToolLabel* labelSudokuClassic = new QxToolLabel(tr("Classic"));
+    labelSudokuClassic->setObjectName("labelSudokuClassic"_L1);
+    labelSudokuClassic->setToolTip(tr("Sudoku Classic Games"));
+    labelSudokuClassic->setFontBold(true);
+
     QToolBar* toolbarSudokuClassic = addToolBar(tr("Sudoku Classic Toolbar"));
     toolbarSudokuClassic->setObjectName("toolbarSudokuClassic"_L1);
+    toolbarSudokuClassic->addWidget(labelSudokuClassic);
 
     // View menu & toolbar
 
