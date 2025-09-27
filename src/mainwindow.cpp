@@ -75,6 +75,11 @@ void MainWindow::setupUi()
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    // Sudoku Classic menu
+
+    QMenu* menuSudokuClassic = menuBar()->addMenu(tr("Sudoku &Classic"));
+    menuSudokuClassic->setObjectName("menuSudokuClassic"_L1);
+
     // View menu & toolbar
 
 
