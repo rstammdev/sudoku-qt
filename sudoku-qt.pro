@@ -36,7 +36,8 @@ HEADERS += \
     src/settingsdialog/settingspageapplication.h \
     src/settingsdialog/settingspageapplicationappearance.h \
     src/settingsdialog/settingspagecomponents.h \
-    src/settingsdialog/settingspageconfirmations.h
+    src/settingsdialog/settingspageconfirmations.h \
+    src/sudoku.h
 
 SOURCES += \
     src/aboutdialog/aboutdialog.cpp \
@@ -54,7 +55,8 @@ SOURCES += \
     src/settingsdialog/settingspageapplication.cpp \
     src/settingsdialog/settingspageapplicationappearance.cpp \
     src/settingsdialog/settingspagecomponents.cpp \
-    src/settingsdialog/settingspageconfirmations.cpp
+    src/settingsdialog/settingspageconfirmations.cpp \
+    src/sudoku.cpp
 
 RESOURCES += \
     res/icons.qrc

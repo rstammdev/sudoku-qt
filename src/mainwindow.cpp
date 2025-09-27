@@ -30,6 +30,7 @@
 #include "gamecontrolspanel/gamecontrolsunitscoreboard.h"
 #include "gamecontrolspanel/gamecontrolsunitstatistics.h"
 #include "settingsdialog/settingsdialog.h"
+#include "sudoku.h"
 
 using namespace Qt::Literals::StringLiterals;
 
