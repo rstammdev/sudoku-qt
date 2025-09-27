@@ -118,8 +118,25 @@ void MainWindow::setupUi()
 
     // Sudoku Killer menu & toolbar
 
+    QList<QAction*> actionsSudokuKiller;
+
+    for (const QStringList& game : Sudoku::gamesKiller()) {
+
+        QAction* action = addAction(game[1]);
+        action->setObjectName("action_%1"_L1.arg(game[0]));
+        action->setIconText(game[2]);
+        action->setToolTip(tr("Sudoku Killer<br><strong>%1</strong><br>%2.").arg(game[1], game[3]));
+        action->setStatusTip(tr("Sudoku Killer %1: %2").arg(game[1], game[3]));
+        action->setCheckable(true);
+        action->setData(game[0]);
+
+        actionsSudokuGames->addAction(action);
+        actionsSudokuKiller.append(action);
+    }
+
     QMenu* menuSudokuKiller = menuBar()->addMenu(tr("Sudoku &Killer"));
     menuSudokuKiller->setObjectName("menuSudokuKiller"_L1);
+    menuSudokuKiller->addActions(actionsSudokuKiller);
 
     QxToolLabel* labelSudokuKiller = new QxToolLabel(tr("Killer"));
     labelSudokuKiller->setObjectName("labelSudokuKiller"_L1);
@@ -129,6 +146,7 @@ void MainWindow::setupUi()
     QToolBar* toolbarSudokuKiller = addToolBar(tr("Sudoku Killer Toolbar"));
     toolbarSudokuKiller->setObjectName("toolbarSudokuKiller"_L1);
     toolbarSudokuKiller->addWidget(labelSudokuKiller);
+    toolbarSudokuKiller->addActions(actionsSudokuKiller);
 
     // View menu & toolbar
 
