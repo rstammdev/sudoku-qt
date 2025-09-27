@@ -121,8 +121,14 @@ void MainWindow::setupUi()
     QMenu* menuSudokuKiller = menuBar()->addMenu(tr("Sudoku &Killer"));
     menuSudokuKiller->setObjectName("menuSudokuKiller"_L1);
 
+    QxToolLabel* labelSudokuKiller = new QxToolLabel(tr("Killer"));
+    labelSudokuKiller->setObjectName("labelSudokuKiller"_L1);
+    labelSudokuKiller->setToolTip(tr("Sudoku Killer Games"));
+    labelSudokuKiller->setFontBold(true);
+
     QToolBar* toolbarSudokuKiller = addToolBar(tr("Sudoku Killer Toolbar"));
     toolbarSudokuKiller->setObjectName("toolbarSudokuKiller"_L1);
+    toolbarSudokuKiller->addWidget(labelSudokuKiller);
 
     // View menu & toolbar
 
