@@ -9,12 +9,17 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 
+#include <QList>
 #include <QObject>
+#include <QStringList>
 
 
 class Sudoku : public QObject
 {
     Q_OBJECT
+
+public:
+    static const QList<QStringList> gamesClassic();
 
 private:
     explicit Sudoku(QObject* parent = nullptr);
