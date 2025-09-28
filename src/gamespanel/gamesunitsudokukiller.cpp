@@ -10,6 +10,7 @@
 
 #include <QGridLayout>
 #include <QLayoutItem>
+#include <QToolButton>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -57,6 +58,41 @@ void GamesUnitSudokuKiller::rebuildLayout()
     while ((item = layout->takeAt(0)) != nullptr)
         if (item->widget())
             widgets.append(item->widget());
+
+    buildGridLayout(layout, widgets);
+}
+
+
+void GamesUnitSudokuKiller::setToolButtons(const QList<QAction*> actions)
+{
+    QLayout* layout = this->layout();
+    if (!layout)
+        return;
+
+    QLayoutItem* item;
+    while ((item = layout->takeAt(0)) != nullptr) {
+
+        if (QToolButton* button = qobject_cast<QToolButton*>(item->widget())) {
+
+            button->setDefaultAction(nullptr);
+            button->deleteLater();
+        }
+
+        delete item->widget();
+        delete item;
+    }
+
+    QList<QWidget*> widgets;
+
+    for (QAction* action : actions) {
+
+        QToolButton* button = new QToolButton;
+        button->setObjectName("button_%1"_L1.arg(action->objectName()));
+        button->setDefaultAction(action);
+        button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+        widgets.append(button);
+    }
 
     buildGridLayout(layout, widgets);
 }

@@ -11,6 +11,7 @@
 
 #include <qxpanelunit.h>
 
+#include <QAction>
 #include <QLayout>
 #include <QList>
 
@@ -24,6 +25,8 @@ public:
     explicit GamesUnitSudokuKiller(QWidget* parent = nullptr);
 
     [[nodiscard]] int columnCount() const;
+
+    void setToolButtons(const QList<QAction*> actions);
 
 public slots:
     void setColumnCount(const int columns);

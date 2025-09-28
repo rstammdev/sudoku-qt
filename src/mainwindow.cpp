@@ -399,6 +399,7 @@ void MainWindow::setupUi()
 
     GamesUnitSudokuKiller* unitGamesSudokuKiller = new GamesUnitSudokuKiller;
     unitGamesSudokuKiller->setObjectName("unitGamesSudokuKiller"_L1);
+    unitGamesSudokuKiller->setToolButtons(actionsSudokuKiller);
 
     QxPanelPalette* panelGames = new QxPanelPalette(tr("Games Panel"), this);
     panelGames->setObjectName("panelGames"_L1);
