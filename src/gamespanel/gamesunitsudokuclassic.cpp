@@ -65,7 +65,24 @@ void GamesUnitSudokuClassic::rebuildLayout()
 
 void GamesUnitSudokuClassic::setToolButtons(const QList<QAction*> actions)
 {
-    QList<QToolButton*> buttons;
+    QLayout* layout = this->layout();
+    if (!layout)
+        return;
+
+    QLayoutItem* item;
+    while ((item = layout->takeAt(0)) != nullptr) {
+
+        if (QToolButton* button = qobject_cast<QToolButton*>(item->widget())) {
+
+            button->setDefaultAction(nullptr);
+            button->deleteLater();
+        }
+
+        delete item->widget();
+        delete item;
+    }
+
+    QList<QWidget*> widgets;
 
     for (QAction* action : actions) {
 
@@ -74,8 +91,10 @@ void GamesUnitSudokuClassic::setToolButtons(const QList<QAction*> actions)
         button->setDefaultAction(action);
         button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
-        buttons.append(button);
+        widgets.append(button);
     }
+
+    buildGridLayout(layout, widgets);
 }
 
 
