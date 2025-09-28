@@ -32,6 +32,7 @@
 #include "gamecontrolspanel/gamecontrolsunitnumberpad.h"
 #include "gamecontrolspanel/gamecontrolsunitscoreboard.h"
 #include "gamecontrolspanel/gamecontrolsunitstatistics.h"
+#include "gamespanel/gamesunitsudokuclassic.h"
 #include "settingsdialog/settingsdialog.h"
 #include "sudoku.h"
 
@@ -391,8 +392,12 @@ void MainWindow::setupUi()
 
     // Games panel
 
+    GamesUnitSudokuClassic* unitGamesSudokuClassic = new GamesUnitSudokuClassic;
+    unitGamesSudokuClassic->setObjectName("unitGamesSudokuClassic"_L1);
+
     QxPanelPalette* panelGames = new QxPanelPalette(tr("Games Panel"), this);
     panelGames->setObjectName("panelGames"_L1);
+    panelGames->addUnit(unitGamesSudokuClassic);
     addDockWidget(Qt::LeftDockWidgetArea, panelGames);
 
     // Game Controls panel
