@@ -31,6 +31,7 @@ HEADERS += \
     src/gamecontrolspanel/gamecontrolsunitscoreboard.h \
     src/gamecontrolspanel/gamecontrolsunitstatistics.h \
     src/gamespanel/gamesunitsudokuclassic.h \
+    src/gamespanel/gamesunitsudokukiller.h \
     src/mainwindow.h \
     src/settingsdialog/settingsdialog.h \
     src/settingsdialog/settingspage.h \
@@ -50,6 +51,7 @@ SOURCES += \
     src/gamecontrolspanel/gamecontrolsunitscoreboard.cpp \
     src/gamecontrolspanel/gamecontrolsunitstatistics.cpp \
     src/gamespanel/gamesunitsudokuclassic.cpp \
+    src/gamespanel/gamesunitsudokukiller.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/settingsdialog/settingsdialog.cpp \
