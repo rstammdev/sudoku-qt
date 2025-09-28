@@ -15,9 +15,21 @@
 class GamesUnitSudokuClassic : public QxPanelUnit
 {
     Q_OBJECT
+    Q_PROPERTY(int columnCount READ columnCount WRITE setColumnCount NOTIFY columnCountChanged)
 
 public:
     explicit GamesUnitSudokuClassic(QWidget* parent = nullptr);
+
+    [[nodiscard]] int columnCount() const;
+
+public slots:
+    void setColumnCount(const int columns);
+
+signals:
+    void columnCountChanged(const int columns);
+
+private:
+    int m_columnCount;
 };
 
 #endif // GAMESUNITSUDOKUCLASSIC_H
