@@ -15,9 +15,21 @@
 class GamesUnitSudokuKiller : public QxPanelUnit
 {
     Q_OBJECT
+    Q_PROPERTY(int columnCount READ columnCount WRITE setColumnCount NOTIFY columnCountChanged)
 
 public:
     explicit GamesUnitSudokuKiller(QWidget* parent = nullptr);
+
+    [[nodiscard]] int columnCount() const;
+
+public slots:
+    void setColumnCount(const int columns);
+
+signals:
+    void columnCountChanged(const int columns);
+
+private:
+    int m_columnCount;
 };
 
 #endif // GAMESUNITSUDOKUKILLER_H
