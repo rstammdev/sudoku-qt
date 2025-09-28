@@ -8,6 +8,8 @@
 
 #include "gamesunitsudokuclassic.h"
 
+using namespace Qt::Literals::StringLiterals;
+
 
 GamesUnitSudokuClassic::GamesUnitSudokuClassic(QWidget* parent)
     : QxPanelUnit{parent}
@@ -31,4 +33,20 @@ void GamesUnitSudokuClassic::setColumnCount(const int columns)
 
     m_columnCount = columns;
     emit columnCountChanged(m_columnCount);
+}
+
+
+void GamesUnitSudokuClassic::setToolButtons(const QList<QAction*> actions)
+{
+    QList<QToolButton*> buttons;
+
+    for (QAction* action : actions) {
+
+        QToolButton* button = new QToolButton(this);
+        button->setObjectName("button_%1"_L1.arg(action->objectName()));
+        button->setDefaultAction(action);
+        button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+        buttons.append(button);
+    }
 }

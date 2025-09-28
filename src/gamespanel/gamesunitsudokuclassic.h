@@ -11,6 +11,10 @@
 
 #include <qxpanelunit.h>
 
+#include <QAction>
+#include <QList>
+#include <QToolButton>
+
 
 class GamesUnitSudokuClassic : public QxPanelUnit
 {
@@ -21,6 +25,8 @@ public:
     explicit GamesUnitSudokuClassic(QWidget* parent = nullptr);
 
     [[nodiscard]] int columnCount() const;
+
+    void setToolButtons(const QList<QAction*> actions);
 
 public slots:
     void setColumnCount(const int columns);

@@ -394,6 +394,7 @@ void MainWindow::setupUi()
 
     GamesUnitSudokuClassic* unitGamesSudokuClassic = new GamesUnitSudokuClassic;
     unitGamesSudokuClassic->setObjectName("unitGamesSudokuClassic"_L1);
+    unitGamesSudokuClassic->setToolButtons(actionsSudokuClassic);
 
     QxPanelPalette* panelGames = new QxPanelPalette(tr("Games Panel"), this);
     panelGames->setObjectName("panelGames"_L1);
