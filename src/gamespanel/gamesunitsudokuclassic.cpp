@@ -8,6 +8,10 @@
 
 #include "gamesunitsudokuclassic.h"
 
+#include <QGridLayout>
+#include <QLayoutItem>
+#include <QToolButton>
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -15,6 +19,9 @@ GamesUnitSudokuClassic::GamesUnitSudokuClassic(QWidget* parent)
     : QxPanelUnit{parent}
     , m_columnCount{2}
 {
+    QGridLayout* layout = new QGridLayout;
+    layout->setObjectName("layout"_L1);
+    setLayout(layout);
 
     setUnitType(QxPanelUnit::GroupBox);
     setUnitTitle(tr("Sudoku Classic"));
@@ -32,7 +39,27 @@ void GamesUnitSudokuClassic::setColumnCount(const int columns)
         return;
 
     m_columnCount = columns;
+
+    rebuildLayout();
+
     emit columnCountChanged(m_columnCount);
+}
+
+
+void GamesUnitSudokuClassic::rebuildLayout()
+{
+    QLayout* layout = this->layout();
+    if (!layout)
+        return;
+
+    QList<QWidget*> widgets;
+
+    QLayoutItem* item;
+    while ((item = layout->takeAt(0)) != nullptr)
+        if (item->widget())
+            widgets.append(item->widget());
+
+    buildGridLayout(layout, widgets);
 }
 
 
@@ -42,11 +69,28 @@ void GamesUnitSudokuClassic::setToolButtons(const QList<QAction*> actions)
 
     for (QAction* action : actions) {
 
-        QToolButton* button = new QToolButton(this);
+        QToolButton* button = new QToolButton;
         button->setObjectName("button_%1"_L1.arg(action->objectName()));
         button->setDefaultAction(action);
         button->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
         buttons.append(button);
+    }
+}
+
+
+void GamesUnitSudokuClassic::buildGridLayout(QLayout* layout, const QList<QWidget*> widgets)
+{
+    QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout);
+
+    int row = 0, col = 0;
+    for (QWidget* widget : widgets) {
+
+        gridLayout->addWidget(widget, row, col);
+
+        if (++col >= m_columnCount) {
+            col = 0;
+            ++row;
+        }
     }
 }

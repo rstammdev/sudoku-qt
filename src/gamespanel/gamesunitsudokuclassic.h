@@ -12,8 +12,8 @@
 #include <qxpanelunit.h>
 
 #include <QAction>
+#include <QLayout>
 #include <QList>
-#include <QToolButton>
 
 
 class GamesUnitSudokuClassic : public QxPanelUnit
@@ -36,6 +36,10 @@ signals:
 
 private:
     int m_columnCount;
+
+    void rebuildLayout();
+
+    void buildGridLayout(QLayout* layout, const QList<QWidget*> widgets);
 };
 
 #endif // GAMESUNITSUDOKUCLASSIC_H
