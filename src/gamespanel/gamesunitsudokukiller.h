@@ -11,6 +11,9 @@
 
 #include <qxpanelunit.h>
 
+#include <QLayout>
+#include <QList>
+
 
 class GamesUnitSudokuKiller : public QxPanelUnit
 {
@@ -30,6 +33,10 @@ signals:
 
 private:
     int m_columnCount;
+
+    void rebuildLayout();
+
+    void buildGridLayout(QLayout* layout, const QList<QWidget*> widgets);
 };
 
 #endif // GAMESUNITSUDOKUKILLER_H
