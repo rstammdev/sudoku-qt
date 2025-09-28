@@ -389,6 +389,12 @@ void MainWindow::setupUi()
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
     menuShowToolbars->addAction(toolbarHelp->toggleViewAction());
 
+    // Games panel
+
+    QxPanelPalette* panelGames = new QxPanelPalette(tr("Games Panel"), this);
+    panelGames->setObjectName("panelGames"_L1);
+    addDockWidget(Qt::LeftDockWidgetArea, panelGames);
+
     // Game Controls panel
 
     GameControlsUnitScoreBoard* unitGameControlsScoreBoard = new GameControlsUnitScoreBoard;
@@ -420,6 +426,7 @@ void MainWindow::setupUi()
     // Show Panels menu
 
     menuShowPanels->addSection(tr("Panels"));
+    menuShowPanels->addAction(panelGames->toggleViewAction());
     menuShowPanels->addAction(panelGameControls->toggleViewAction());
 
 }
