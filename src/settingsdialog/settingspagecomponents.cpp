@@ -92,7 +92,7 @@ void SettingsPageComponentsTabEditor::save()
 
 void SettingsPageComponentsTabEditor::restoreDefaults(bool current)
 {
-
+    Q_UNUSED(current)
 }
 
 
@@ -116,5 +116,5 @@ void SettingsPageComponentsTabPlaceholders::save()
 
 void SettingsPageComponentsTabPlaceholders::restoreDefaults(bool current)
 {
-
+    Q_UNUSED(current)
 }

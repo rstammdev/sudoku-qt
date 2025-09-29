@@ -41,7 +41,7 @@ using namespace Qt::Literals::StringLiterals;
 
 
 MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent)
+    : QMainWindow{parent}
 {
 
     setupUi();
@@ -471,13 +471,13 @@ void MainWindow::loadSettings()
 {
     QSettings settings;
 
-    const QByteArray geometry = settings.value("Application/Geometry"_L1).toByteArray();
+    const QByteArray geometry = settings.value("Application/Geometry"_L1, QByteArray()).toByteArray();
     if (!geometry.isEmpty())
         restoreGeometry(geometry);
     else
         resize(1280, 720);
 
-    const QByteArray state = settings.value("Application/State"_L1).toByteArray();
+    const QByteArray state = settings.value("Application/State"_L1, QByteArray()).toByteArray();
     if (!state.isEmpty())
         restoreState(state);
 
@@ -515,13 +515,13 @@ void MainWindow::saveSettings()
 
 void MainWindow::applySudokuGame(QAction* action)
 {
-    Q_UNUSED(action);
+    Q_UNUSED(action)
 }
 
 
 void MainWindow::applyZoomFactor(const qreal factor)
 {
-
+    Q_UNUSED(factor)
 }
 
 

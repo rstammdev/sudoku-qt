@@ -91,5 +91,5 @@ void SettingsPageApplicationTabBehavior::save()
 
 void SettingsPageApplicationTabBehavior::restoreDefaults(bool current)
 {
-
+    Q_UNUSED(current)
 }

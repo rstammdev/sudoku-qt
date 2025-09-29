@@ -47,5 +47,5 @@ void SettingsPageConfirmations::save()
 
 void SettingsPageConfirmations::restoreDefaults(bool current)
 {
-
+    Q_UNUSED(current)
 }

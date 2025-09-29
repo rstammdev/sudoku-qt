@@ -93,7 +93,7 @@ void SettingsPageApplicationAppearanceTabZoomButton::save()
 
 void SettingsPageApplicationAppearanceTabZoomButton::restoreDefaults(bool current)
 {
-
+    Q_UNUSED(current)
 }
 
 
@@ -117,7 +117,7 @@ void SettingsPageApplicationAppearanceTabSchemeThemeButton::save()
 
 void SettingsPageApplicationAppearanceTabSchemeThemeButton::restoreDefaults(bool current)
 {
-
+    Q_UNUSED(current)
 }
 
 
@@ -141,5 +141,5 @@ void SettingsPageApplicationAppearanceTabToolbars::save()
 
 void SettingsPageApplicationAppearanceTabToolbars::restoreDefaults(bool current)
 {
-
+    Q_UNUSED(current)
 }
