@@ -42,12 +42,15 @@ using namespace Qt::Literals::StringLiterals;
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow{parent}
+    , m_sudokuModel{new SudokuModel(this)}
+    , m_sudokuView{new SudokuView(this)}
 {
 
     setupUi();
     loadSettings();
 
-    setCentralWidget(new QWidget);
+    m_sudokuView->setModel(m_sudokuModel);
+    setCentralWidget(m_sudokuView);
 
     setWindowIcon(QIcon::fromTheme("sudoku-qt"_L1, QIcon(":/icons/apps/16/sudoku-qt"_L1)));
     setMinimumSize(854, 480);

@@ -13,6 +13,9 @@
 #include <QCloseEvent>
 #include <QMainWindow>
 
+#include "sudokumodel.h"
+#include "sudokuview.h"
+
 
 class MainWindow : public QMainWindow
 {
@@ -41,6 +44,9 @@ private slots:
     void triggerAboutDialog();
 
 private:
+    SudokuModel* m_sudokuModel;
+    SudokuView* m_sudokuView;
+
     void setupUi();
 
     QAction* m_actionSchemeTheme;
