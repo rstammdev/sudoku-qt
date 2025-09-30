@@ -40,7 +40,8 @@ HEADERS += \
     src/settingsdialog/settingspagecomponents.h \
     src/settingsdialog/settingspageconfirmations.h \
     src/sudoku.h \
-    src/sudokumodel.h
+    src/sudokumodel.h \
+    src/sudokuview.h
 
 SOURCES += \
     src/aboutdialog/aboutdialog.cpp \
@@ -62,7 +63,8 @@ SOURCES += \
     src/settingsdialog/settingspagecomponents.cpp \
     src/settingsdialog/settingspageconfirmations.cpp \
     src/sudoku.cpp \
-    src/sudokumodel.cpp
+    src/sudokumodel.cpp \
+    src/sudokuview.cpp
 
 RESOURCES += \
     res/icons.qrc
