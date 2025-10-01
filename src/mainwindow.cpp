@@ -13,6 +13,7 @@
 #include <QList>
 #include <QMenu>
 #include <QMenuBar>
+#include <QScrollArea>
 #include <QSettings>
 #include <QStatusBar>
 #include <QToolBar>
@@ -50,7 +51,12 @@ MainWindow::MainWindow(QWidget* parent)
     loadSettings();
 
     m_sudokuView->setModel(m_sudokuModel);
-    setCentralWidget(m_sudokuView);
+
+    QScrollArea* scrollArea = new QScrollArea;
+    scrollArea->setAlignment(Qt::AlignCenter);
+    scrollArea->setWidget(m_sudokuView);
+
+    setCentralWidget(scrollArea);
 
     setWindowIcon(QIcon::fromTheme("sudoku-qt"_L1, QIcon(":/icons/apps/16/sudoku-qt"_L1)));
     setMinimumSize(854, 480);
