@@ -35,12 +35,12 @@ public:
     QModelIndex indexAt(const QPoint& point) const override;
 
 public slots:
-    void setScaleFactor(const qreal factor);
-
-protected:
     void setShowBlockGrid(const bool show);
     void setShowCellGrid(const bool show);
 
+    void setScaleFactor(const qreal factor);
+
+protected:
     QSize sizeHint() const override;
 
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
