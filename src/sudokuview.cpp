@@ -49,7 +49,7 @@ void SudokuView::setShowCellGrid(const bool show)
 
 void SudokuView::setScaleFactor(const qreal factor)
 {
-    if (factor <= 0)
+    if (factor <= 0 || factor == m_scaleFactor)
         return;
 
     m_scaleFactor = factor;
