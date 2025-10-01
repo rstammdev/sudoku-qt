@@ -29,7 +29,12 @@ public:
     void scrollTo(const QModelIndex& index, ScrollHint hint = EnsureVisible) override;
     QModelIndex indexAt(const QPoint& point) const override;
 
+public slots:
+    void setScaleFactor(const qreal factor);
+
 protected:
+    QSize sizeHint() const override;
+
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
 
     int horizontalOffset() const override;
@@ -39,6 +44,9 @@ protected:
 
     void setSelection(const QRect& rect, QItemSelectionModel::SelectionFlags flags) override;
     QRegion visualRegionForSelection(const QItemSelection& selection) const override;
+
+private:
+    qreal m_scaleFactor;
 };
 
 #endif // SUDOKUVIEW_H

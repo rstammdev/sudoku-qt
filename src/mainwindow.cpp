@@ -530,7 +530,7 @@ void MainWindow::applySudokuGame(QAction* action)
 
 void MainWindow::applyZoomFactor(const qreal factor)
 {
-    Q_UNUSED(factor)
+    m_sudokuView->setScaleFactor(factor);
 }
 
 

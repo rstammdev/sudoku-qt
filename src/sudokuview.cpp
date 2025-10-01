@@ -11,8 +11,28 @@
 
 SudokuView::SudokuView(QWidget* parent)
     : QAbstractItemView{parent}
+    , m_scaleFactor{1.0}
 {
 
+}
+
+
+void SudokuView::setScaleFactor(const qreal factor)
+{
+    if (factor <= 0)
+        return;
+
+    m_scaleFactor = factor;
+
+    resize(sizeHint());
+
+    updateGeometry();
+}
+
+
+QSize SudokuView::sizeHint() const
+{
+    return QSize(500, 500) * m_scaleFactor;
 }
 
 
