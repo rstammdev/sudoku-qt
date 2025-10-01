@@ -172,6 +172,15 @@ void MainWindow::setupUi()
     actionShowBlockGrid->setCheckable(true);
     actionShowBlockGrid->setChecked(true);
 
+    QAction* actionShowCellGrid = addAction(tr("Show &Cell Grid"));
+    actionShowCellGrid->setObjectName("actionShowCellGrid"_L1);
+    actionShowCellGrid->setIcon(QIcon::fromTheme("show-grid"_L1, QIcon(":/icons/actions/16/show-grid"_L1)));
+    actionShowCellGrid->setIconText(tr("Cell Grid"));
+    actionShowCellGrid->setStatusTip(tr("Show the cell grid"));
+    actionShowCellGrid->setToolTip(tr("Show the cell grid."));
+    actionShowCellGrid->setCheckable(true);
+    actionShowCellGrid->setChecked(true);
+
     QAction* actionEnlargeFont = addAction(tr("&Enlarge Font"));
     actionEnlargeFont->setObjectName("actionEnlargeFont"_L1);
     actionEnlargeFont->setIcon(QIcon::fromTheme("zoom-in"_L1, QIcon(":/icons/actions/16/zoom-in"_L1)));
@@ -222,6 +231,7 @@ void MainWindow::setupUi()
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
     menuView->addAction(actionShowBlockGrid);
+    menuView->addAction(actionShowCellGrid);
     menuView->addSeparator();
     menuView->addAction(actionEnlargeFont);
     menuView->addAction(actionShrinkFont);
@@ -237,6 +247,7 @@ void MainWindow::setupUi()
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->addAction(actionShowBlockGrid);
+    toolbarView->addAction(actionShowCellGrid);
     toolbarView->addSeparator();
     toolbarView->setObjectName("toolbarView"_L1);
     toolbarView->addAction(actionShrinkFont);
@@ -246,6 +257,7 @@ void MainWindow::setupUi()
     toolbarView->addAction(actionFullScreen);
 
     connect(actionShowBlockGrid, &QAction::toggled, m_sudokuView, &SudokuView::setShowBlockGrid);
+    connect(actionShowCellGrid, &QAction::toggled, m_sudokuView, &SudokuView::setShowCellGrid);
     connect(actionEnlargeFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomIn);
     connect(actionShrinkFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomOut);
     connect(actionResetFontSize, &QAction::triggered, buttonZoomControl, &QxZoomButton::resetZoom);
