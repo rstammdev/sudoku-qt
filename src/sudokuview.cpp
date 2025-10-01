@@ -12,6 +12,7 @@
 SudokuView::SudokuView(QWidget* parent)
     : QAbstractItemView{parent}
     , m_showBlockGrid{true}
+    , m_showCellGrid{true}
     , m_scaleFactor{1.0}
 {
 
@@ -29,6 +30,20 @@ void SudokuView::setShowBlockGrid(const bool show)
         return;
 
     m_showBlockGrid = show;
+}
+
+
+bool SudokuView::showCellGrid() const
+{
+    return m_showCellGrid;
+}
+
+void SudokuView::setShowCellGrid(const bool show)
+{
+    if (show == m_showCellGrid)
+        return;
+
+    m_showCellGrid = show;
 }
 
 

@@ -22,11 +22,13 @@ class SudokuView : public QAbstractItemView
 {
     Q_OBJECT
     Q_PROPERTY(bool showBlockGrid READ showBlockGrid WRITE setShowBlockGrid FINAL)
+    Q_PROPERTY(bool showCellGrid READ showCellGrid WRITE setShowCellGrid FINAL)
 
 public:
     explicit SudokuView(QWidget* parent = nullptr);
 
     [[nodiscard]] bool showBlockGrid() const;
+    [[nodiscard]] bool showCellGrid() const;
 
     QRect visualRect(const QModelIndex& index) const override;
     void scrollTo(const QModelIndex& index, ScrollHint hint = EnsureVisible) override;
@@ -37,6 +39,7 @@ public slots:
 
 protected:
     void setShowBlockGrid(const bool show);
+    void setShowCellGrid(const bool show);
 
     QSize sizeHint() const override;
 
@@ -52,6 +55,8 @@ protected:
 
 private:
     bool m_showBlockGrid;
+    bool m_showCellGrid;
+
     qreal m_scaleFactor;
 };
 
