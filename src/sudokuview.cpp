@@ -11,9 +11,24 @@
 
 SudokuView::SudokuView(QWidget* parent)
     : QAbstractItemView{parent}
+    , m_showBlockGrid{true}
     , m_scaleFactor{1.0}
 {
 
+}
+
+
+bool SudokuView::showBlockGrid() const
+{
+    return m_showBlockGrid;
+}
+
+void SudokuView::setShowBlockGrid(const bool show)
+{
+    if (show == m_showBlockGrid)
+        return;
+
+    m_showBlockGrid = show;
 }
 
 

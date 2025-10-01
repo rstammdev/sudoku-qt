@@ -21,9 +21,12 @@
 class SudokuView : public QAbstractItemView
 {
     Q_OBJECT
+    Q_PROPERTY(bool showBlockGrid READ showBlockGrid WRITE setShowBlockGrid FINAL)
 
 public:
     explicit SudokuView(QWidget* parent = nullptr);
+
+    [[nodiscard]] bool showBlockGrid() const;
 
     QRect visualRect(const QModelIndex& index) const override;
     void scrollTo(const QModelIndex& index, ScrollHint hint = EnsureVisible) override;
@@ -33,6 +36,8 @@ public slots:
     void setScaleFactor(const qreal factor);
 
 protected:
+    void setShowBlockGrid(const bool show);
+
     QSize sizeHint() const override;
 
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
@@ -46,6 +51,7 @@ protected:
     QRegion visualRegionForSelection(const QItemSelection& selection) const override;
 
 private:
+    bool m_showBlockGrid;
     qreal m_scaleFactor;
 };
 
