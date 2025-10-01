@@ -246,10 +246,10 @@ void MainWindow::setupUi()
     buttonZoomControl->setToolButtonStyle(Qt::ToolButtonTextOnly);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
+    toolbarView->setObjectName("toolbarView"_L1);
     toolbarView->addAction(actionShowBlockGrid);
     toolbarView->addAction(actionShowCellGrid);
     toolbarView->addSeparator();
-    toolbarView->setObjectName("toolbarView"_L1);
     toolbarView->addAction(actionShrinkFont);
     toolbarView->addWidget(buttonZoomControl);
     toolbarView->addAction(actionEnlargeFont);
