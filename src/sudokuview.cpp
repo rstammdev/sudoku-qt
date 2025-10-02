@@ -130,6 +130,17 @@ QSize SudokuView::cellSize() const
 }
 
 
+QSize SudokuView::canvasSize() const
+{
+    const int lineWidths = 2 * m_frameGridWidth + 2 * m_blockGridWidth + 6 * m_cellGridWidth;
+
+    const int width = 9 *cellSize().width() + lineWidths;
+    const int height = 9 *cellSize().height() + lineWidths;
+
+    return QSize(width, height);
+}
+
+
 QSize SudokuView::sizeHint() const
 {
     return QSize(500, 500) * m_scaleFactor;

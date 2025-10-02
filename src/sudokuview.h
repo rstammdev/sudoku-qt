@@ -81,6 +81,7 @@ private:
     qreal m_scaleFactor;
 
     QSize cellSize() const;
+    QSize canvasSize() const;
 };
 
 #endif // SUDOKUVIEW_H
