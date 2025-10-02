@@ -21,12 +21,14 @@
 class SudokuView : public QAbstractItemView
 {
     Q_OBJECT
+    Q_PROPERTY(bool showFrameGrid READ showFrameGrid WRITE setShowFrameGrid FINAL)
     Q_PROPERTY(bool showBlockGrid READ showBlockGrid WRITE setShowBlockGrid FINAL)
     Q_PROPERTY(bool showCellGrid READ showCellGrid WRITE setShowCellGrid FINAL)
 
 public:
     explicit SudokuView(QWidget* parent = nullptr);
 
+    [[nodiscard]] bool showFrameGrid() const;
     [[nodiscard]] bool showBlockGrid() const;
     [[nodiscard]] bool showCellGrid() const;
 
@@ -35,6 +37,7 @@ public:
     QModelIndex indexAt(const QPoint& point) const override;
 
 public slots:
+    void setShowFrameGrid(const bool show);
     void setShowBlockGrid(const bool show);
     void setShowCellGrid(const bool show);
 
@@ -54,6 +57,7 @@ protected:
     QRegion visualRegionForSelection(const QItemSelection& selection) const override;
 
 private:
+    bool m_showFrameGrid;
     bool m_showBlockGrid;
     bool m_showCellGrid;
 
