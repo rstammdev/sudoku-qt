@@ -76,7 +76,11 @@ private:
     bool m_showBlockGrid;
     bool m_showCellGrid;
 
+    QSize m_baseCellSize;
+
     qreal m_scaleFactor;
+
+    QSize cellSize() const;
 };
 
 #endif // SUDOKUVIEW_H

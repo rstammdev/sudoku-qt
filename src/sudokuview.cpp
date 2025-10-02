@@ -17,9 +17,10 @@ SudokuView::SudokuView(QWidget* parent)
     , m_showFrameGrid{true}
     , m_showBlockGrid{true}
     , m_showCellGrid{true}
+    , m_baseCellSize{0, 0}
     , m_scaleFactor{1.0}
 {
-
+    m_baseCellSize = {50, 50};
 }
 
 
@@ -117,6 +118,15 @@ void SudokuView::setScaleFactor(const qreal factor)
     resize(sizeHint());
 
     updateGeometry();
+}
+
+
+QSize SudokuView::cellSize() const
+{
+    const int width = qCeil(m_baseCellSize.width() * m_scaleFactor);
+    const int height = qCeil(m_baseCellSize.height() * m_scaleFactor);
+
+    return QSize(width, height);
 }
 
 
