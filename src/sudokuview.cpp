@@ -12,6 +12,7 @@
 SudokuView::SudokuView(QWidget* parent)
     : QAbstractItemView{parent}
     , m_frameGridWidth{3}
+    , m_blockGridWidth{3}
     , m_showFrameGrid{true}
     , m_showBlockGrid{true}
     , m_showCellGrid{true}
@@ -32,6 +33,20 @@ void SudokuView::setFrameGridWidth(const int width)
         return;
 
     m_frameGridWidth = width;
+}
+
+
+int SudokuView::blockGridWidth() const
+{
+    return m_blockGridWidth;
+}
+
+void SudokuView::setBlockGridWidth(const int width)
+{
+    if (width == m_blockGridWidth)
+        return;
+
+    m_blockGridWidth = width;
 }
 
 
