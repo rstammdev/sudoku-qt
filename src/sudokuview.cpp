@@ -204,6 +204,12 @@ void SudokuView::paintEvent(QPaintEvent* event)
     const QColor blockGridColor = QColor::fromRgba(static_cast<QRgb>(blockGridHint));
     const QPen blockGridPen = QPen(showBlockGrid ? blockGridColor : backgroundColor, 1, Qt::SolidLine);
 
+    const bool showCellGrid = m_showCellGrid;
+    const int cellGridWidth = m_cellGridWidth;
+    const int cellGridHint = style()->styleHint(QStyle::SH_Table_GridLineColor, &option, this);
+    const QColor cellGridColor = QColor::fromRgba(static_cast<QRgb>(cellGridHint));
+    const QPen cellGridPen = QPen(cellGridColor, 1, Qt::SolidLine);
+
 }
 
 
