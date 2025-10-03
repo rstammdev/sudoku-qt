@@ -9,6 +9,7 @@
 #include "sudokuview.h"
 
 #include <QColor>
+#include <QPainter>
 #include <QPen>
 #include <QRgb>
 #include <QStyle>
@@ -219,6 +220,11 @@ void SudokuView::paintEvent(QPaintEvent* event)
     const QPoint pointBottomEnd = QPoint(canvasSize.width() - 1, canvasSize.height() - 1);
 
     const int cells = 9;
+
+
+    QPainter painter(viewport());
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.fillRect(rect(), backgroundColor);
 
 }
 
