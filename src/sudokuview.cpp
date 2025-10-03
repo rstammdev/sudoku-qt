@@ -8,6 +8,11 @@
 
 #include "sudokuview.h"
 
+#include <QColor>
+#include <QPen>
+#include <QRgb>
+#include <QStyle>
+
 
 SudokuView::SudokuView(QWidget* parent)
     : QAbstractItemView{parent}
@@ -181,6 +186,17 @@ QSize SudokuView::sizeHint() const
 void SudokuView::paintEvent(QPaintEvent* event)
 {
     Q_UNUSED(event)
+
+    QStyleOptionViewItem option;
+    initViewItemOption(&option);
+
+    const QColor backgroundColor = option.palette.color(QPalette::Base);
+
+    const bool showFrameGrid = m_showFrameGrid;
+    const int frameGridWidth = m_frameGridWidth;
+    const int frameGridHint = style()->styleHint(QStyle::SH_Table_GridLineColor, &option, this);
+    const QColor frameGridColor = QColor::fromRgba(static_cast<QRgb>(frameGridHint));
+    const QPen frameGridPen = QPen(showFrameGrid ? frameGridColor : backgroundColor, 1, Qt::SolidLine);
 
 }
 
