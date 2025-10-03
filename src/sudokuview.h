@@ -44,9 +44,9 @@ public:
     QModelIndex indexAt(const QPoint& point) const override;
 
 public slots:
-    void setFrameGridWidth(const int width);
-    void setBlockGridWidth(const int width);
-    void setCellGridWidth(const int width);
+    void setFrameGridWidth(int width);
+    void setBlockGridWidth(int width);
+    void setCellGridWidth(int width);
 
     void setShowFrameGrid(const bool show);
     void setShowBlockGrid(const bool show);

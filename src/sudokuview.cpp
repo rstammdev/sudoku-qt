@@ -33,8 +33,11 @@ int SudokuView::frameGridWidth() const
     return m_frameGridWidth;
 }
 
-void SudokuView::setFrameGridWidth(const int width)
+void SudokuView::setFrameGridWidth(int width)
 {
+    if (width < 0)
+        width = 0;
+
     if (width == m_frameGridWidth)
         return;
 
@@ -49,8 +52,11 @@ int SudokuView::blockGridWidth() const
     return m_blockGridWidth;
 }
 
-void SudokuView::setBlockGridWidth(const int width)
+void SudokuView::setBlockGridWidth(int width)
 {
+    if (width < 0)
+        width = 0;
+
     if (width == m_blockGridWidth)
         return;
 
@@ -65,8 +71,11 @@ int SudokuView::cellGridWidth() const
     return m_cellGridWidth;
 }
 
-void SudokuView::setCellGridWidth(const int width)
+void SudokuView::setCellGridWidth(int width)
 {
+    if (width < 0)
+        width = 0;
+
     if (width == m_cellGridWidth)
         return;
 
