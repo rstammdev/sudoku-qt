@@ -13,6 +13,7 @@
 #include <QItemSelection>
 #include <QItemSelectionModel>
 #include <QModelIndex>
+#include <QPaintEvent>
 #include <QPoint>
 #include <QRect>
 #include <QRegion>
@@ -56,6 +57,8 @@ public slots:
 
 protected:
     QSize sizeHint() const override;
+
+    void paintEvent(QPaintEvent* event) override;
 
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
 

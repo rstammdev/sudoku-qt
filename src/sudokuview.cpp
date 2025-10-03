@@ -44,6 +44,8 @@ void SudokuView::setFrameGridWidth(int width)
     m_frameGridWidth = width;
 
     setFixedSize(canvasSize());
+
+    viewport()->update();
 }
 
 
@@ -63,6 +65,8 @@ void SudokuView::setBlockGridWidth(int width)
     m_blockGridWidth = width;
 
     setFixedSize(canvasSize());
+
+    viewport()->update();
 }
 
 
@@ -82,6 +86,8 @@ void SudokuView::setCellGridWidth(int width)
     m_cellGridWidth = width;
 
     setFixedSize(canvasSize());
+
+    viewport()->update();
 }
 
 
@@ -96,6 +102,8 @@ void SudokuView::setShowFrameGrid(const bool show)
         return;
 
     m_showFrameGrid = show;
+
+    viewport()->update();
 }
 
 
@@ -110,6 +118,8 @@ void SudokuView::setShowBlockGrid(const bool show)
         return;
 
     m_showBlockGrid = show;
+
+    viewport()->update();
 }
 
 
@@ -124,6 +134,8 @@ void SudokuView::setShowCellGrid(const bool show)
         return;
 
     m_showCellGrid = show;
+
+    viewport()->update();
 }
 
 
@@ -135,6 +147,8 @@ void SudokuView::setScaleFactor(const qreal factor)
     m_scaleFactor = factor;
 
     setFixedSize(canvasSize());
+
+    viewport()->update();
 }
 
 
@@ -161,6 +175,13 @@ QSize SudokuView::canvasSize() const
 QSize SudokuView::sizeHint() const
 {
     return canvasSize();
+}
+
+
+void SudokuView::paintEvent(QPaintEvent* event)
+{
+    Q_UNUSED(event)
+
 }
 
 
