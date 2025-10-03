@@ -198,6 +198,12 @@ void SudokuView::paintEvent(QPaintEvent* event)
     const QColor frameGridColor = QColor::fromRgba(static_cast<QRgb>(frameGridHint));
     const QPen frameGridPen = QPen(showFrameGrid ? frameGridColor : backgroundColor, 1, Qt::SolidLine);
 
+    const bool showBlockGrid = m_showBlockGrid;
+    const int blockGridWidth = m_blockGridWidth;
+    const int blockGridHint = style()->styleHint(QStyle::SH_Table_GridLineColor, &option, this);
+    const QColor blockGridColor = QColor::fromRgba(static_cast<QRgb>(blockGridHint));
+    const QPen blockGridPen = QPen(showBlockGrid ? blockGridColor : backgroundColor, 1, Qt::SolidLine);
+
 }
 
 
