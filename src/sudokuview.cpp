@@ -210,6 +210,16 @@ void SudokuView::paintEvent(QPaintEvent* event)
     const QColor cellGridColor = QColor::fromRgba(static_cast<QRgb>(cellGridHint));
     const QPen cellGridPen = QPen(cellGridColor, 1, Qt::SolidLine);
 
+    const QSize cellSize = this->cellSize();
+    const QSize canvasSize = this->canvasSize();
+
+    const QPoint pointTopStart = QPoint(0, 0);
+    const QPoint pointTopEnd = QPoint(canvasSize.width() - 1, 0);
+    const QPoint pointBottomStart = QPoint(0, canvasSize.height() - 1);
+    const QPoint pointBottomEnd = QPoint(canvasSize.width() - 1, canvasSize.height() - 1);
+
+    const int cells = 9;
+
 }
 
 
