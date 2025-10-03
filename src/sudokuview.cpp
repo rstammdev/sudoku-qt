@@ -197,7 +197,7 @@ void SudokuView::paintEvent(QPaintEvent* event)
     const int frameGridWidth = m_frameGridWidth;
     const int frameGridHint = style()->styleHint(QStyle::SH_Table_GridLineColor, &option, this);
     const QColor frameGridColor = QColor::fromRgba(static_cast<QRgb>(frameGridHint));
-    const QPen frameGridPen = QPen(showFrameGrid ? frameGridColor : backgroundColor, 1, Qt::SolidLine);
+    const QPen frameGridPen = QPen(frameGridColor, 1, Qt::SolidLine);
 
     const bool showBlockGrid = m_showBlockGrid;
     const int blockGridWidth = m_blockGridWidth;
@@ -226,6 +226,27 @@ void SudokuView::paintEvent(QPaintEvent* event)
     painter.setRenderHint(QPainter::Antialiasing);
     painter.fillRect(rect(), backgroundColor);
 
+    // Frame grid
+
+    if (showFrameGrid) {
+
+        painter.setPen(frameGridPen);
+
+        const QPoint frameOffset = QPoint(0, 1);
+
+        for (int i = 0; i < frameGridWidth; i++) {
+
+            const QPoint topStart = pointTopStart + QPoint(i, i);
+            const QPoint topEnd = pointTopEnd + QPoint(-i, i);
+            const QPoint bottomStart = pointBottomStart - QPoint(-i, i);
+            const QPoint bottomEnd = pointBottomEnd - QPoint(i, i);
+
+            painter.drawLine(topStart, topEnd); // Top
+            painter.drawLine(topStart + frameOffset, bottomStart - frameOffset); // Left
+            painter.drawLine(topEnd + frameOffset, bottomEnd - frameOffset); // Right
+            painter.drawLine(bottomStart, bottomEnd); // Bottom
+        }
+    }
 }
 
 
