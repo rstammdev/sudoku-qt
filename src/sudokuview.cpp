@@ -229,7 +229,7 @@ void SudokuView::paintEvent(QPaintEvent* event)
     const QPen blockGridPen = QPen(blockGridColor, 1, Qt::SolidLine);
 
     const bool showCellGrid = m_showCellGrid;
-    const int cellGridWidth = m_cellGridWidth;
+    const int cellGridWidth = showCellGrid ? m_cellGridWidth : 0;
     const int cellGridHint = style()->styleHint(QStyle::SH_Table_GridLineColor, &option, this);
     const QColor cellGridColor = QColor::fromRgba(static_cast<QRgb>(cellGridHint));
     const QPen cellGridPen = QPen(cellGridColor, 1, Qt::SolidLine);
@@ -248,6 +248,47 @@ void SudokuView::paintEvent(QPaintEvent* event)
     QPainter painter(viewport());
     painter.setRenderHint(QPainter::Antialiasing);
     painter.fillRect(rect(), backgroundColor);
+
+
+    // Cell grid
+
+    if (showCellGrid) {
+
+        painter.setPen(cellGridPen);
+
+        int cellOffsetX = frameGridWidth;
+        int cellOffsetY = frameGridWidth;
+
+        for (int i = 1; i < cells; ++i) {
+
+            cellOffsetX += cellSize.width();
+            cellOffsetY += cellSize.height();
+
+            if (!showBlockGrid || i % 3 != 0) {
+
+                for (int i = 0; i < cellGridWidth; i++) {
+
+                    const QPoint horizontalStart = QPoint(frameGridWidth, cellOffsetY);
+                    const QPoint horizontalEnd = QPoint(pointBottomEnd.x() - frameGridWidth, cellOffsetY);
+
+                    painter.drawLine(horizontalStart, horizontalEnd);
+
+                    const QPoint verticalStart = QPoint(cellOffsetX, frameGridWidth);
+                    const QPoint verticalEnd = QPoint(cellOffsetX, pointBottomEnd.y() - frameGridWidth);
+
+                    painter.drawLine(verticalStart, verticalEnd);
+
+                    cellOffsetX++;
+                    cellOffsetY++;
+                }
+            }
+            else {
+
+                cellOffsetX += blockGridWidth;
+                cellOffsetY += blockGridWidth;
+            }
+        }
+    }
 
     // Block grid
 
