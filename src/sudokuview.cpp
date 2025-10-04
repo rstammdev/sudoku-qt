@@ -106,6 +106,11 @@ void SudokuView::setCellGridWidth(int width)
     viewport()->update();
 }
 
+void SudokuView::resetCellGridWidth()
+{
+    setCellGridWidth(1);
+}
+
 
 bool SudokuView::showFrameGrid() const
 {

@@ -24,7 +24,7 @@ class SudokuView : public QAbstractItemView
     Q_OBJECT
     Q_PROPERTY(int frameGridWidth READ frameGridWidth WRITE setFrameGridWidth RESET resetFrameGridWidth FINAL)
     Q_PROPERTY(int blockGridWidth READ blockGridWidth WRITE setBlockGridWidth RESET resetBlockGridWidth FINAL)
-    Q_PROPERTY(int cellGridWidth READ cellGridWidth WRITE setCellGridWidth FINAL)
+    Q_PROPERTY(int cellGridWidth READ cellGridWidth WRITE setCellGridWidth RESET resetCellGridWidth FINAL)
     Q_PROPERTY(bool showFrameGrid READ showFrameGrid WRITE setShowFrameGrid FINAL)
     Q_PROPERTY(bool showBlockGrid READ showBlockGrid WRITE setShowBlockGrid FINAL)
     Q_PROPERTY(bool showCellGrid READ showCellGrid WRITE setShowCellGrid FINAL)
@@ -50,6 +50,7 @@ public slots:
     void setBlockGridWidth(int width);
     void resetBlockGridWidth();
     void setCellGridWidth(int width);
+    void resetCellGridWidth();
 
     void setShowFrameGrid(const bool show);
     void setShowBlockGrid(const bool show);
