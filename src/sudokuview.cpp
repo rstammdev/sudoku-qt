@@ -124,6 +124,8 @@ void SudokuView::setShowFrameGrid(const bool show)
 
     m_showFrameGrid = show;
 
+    setFixedSize(canvasSize());
+
     viewport()->update();
 }
 
@@ -140,6 +142,8 @@ void SudokuView::setShowBlockGrid(const bool show)
 
     m_showBlockGrid = show;
 
+    setFixedSize(canvasSize());
+
     viewport()->update();
 }
 
@@ -155,6 +159,8 @@ void SudokuView::setShowCellGrid(const bool show)
         return;
 
     m_showCellGrid = show;
+
+    setFixedSize(canvasSize());
 
     viewport()->update();
 }
@@ -184,10 +190,12 @@ QSize SudokuView::cellSize() const
 
 QSize SudokuView::canvasSize() const
 {
-    const int lineWidths = 2 * m_frameGridWidth + 2 * m_blockGridWidth + 6 * m_cellGridWidth;
+    const int frameGridWidth = m_showFrameGrid ? 2 * m_frameGridWidth : 0;
+    const int blockGridWidth = m_showBlockGrid ? 2 * m_blockGridWidth : 0;
+    const int cellGridWidth = m_showCellGrid ? (!m_showBlockGrid ? 8 : 6) * m_cellGridWidth : 0;
 
-    const int width = 9 *cellSize().width() + lineWidths;
-    const int height = 9 *cellSize().height() + lineWidths;
+    const int width = 9 *cellSize().width() + frameGridWidth + blockGridWidth + cellGridWidth;
+    const int height = 9 *cellSize().height() + frameGridWidth + blockGridWidth + cellGridWidth;
 
     return QSize(width, height);
 }
