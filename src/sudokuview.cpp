@@ -54,6 +54,11 @@ void SudokuView::setFrameGridWidth(int width)
     viewport()->update();
 }
 
+void SudokuView::resetFrameGridWidth()
+{
+    setFrameGridWidth(3);
+}
+
 
 int SudokuView::blockGridWidth() const
 {
