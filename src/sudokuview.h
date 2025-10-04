@@ -22,12 +22,12 @@
 class SudokuView : public QAbstractItemView
 {
     Q_OBJECT
-    Q_PROPERTY(int frameGridWidth READ frameGridWidth WRITE setFrameGridWidth RESET resetFrameGridWidth FINAL)
-    Q_PROPERTY(int blockGridWidth READ blockGridWidth WRITE setBlockGridWidth RESET resetBlockGridWidth FINAL)
-    Q_PROPERTY(int cellGridWidth READ cellGridWidth WRITE setCellGridWidth RESET resetCellGridWidth FINAL)
-    Q_PROPERTY(bool showFrameGrid READ showFrameGrid WRITE setShowFrameGrid FINAL)
-    Q_PROPERTY(bool showBlockGrid READ showBlockGrid WRITE setShowBlockGrid FINAL)
-    Q_PROPERTY(bool showCellGrid READ showCellGrid WRITE setShowCellGrid FINAL)
+    Q_PROPERTY(int frameGridWidth READ frameGridWidth WRITE setFrameGridWidth RESET resetFrameGridWidth)
+    Q_PROPERTY(int blockGridWidth READ blockGridWidth WRITE setBlockGridWidth RESET resetBlockGridWidth)
+    Q_PROPERTY(int cellGridWidth READ cellGridWidth WRITE setCellGridWidth RESET resetCellGridWidth)
+    Q_PROPERTY(bool showFrameGrid READ showFrameGrid WRITE setShowFrameGrid)
+    Q_PROPERTY(bool showBlockGrid READ showBlockGrid WRITE setShowBlockGrid)
+    Q_PROPERTY(bool showCellGrid READ showCellGrid WRITE setShowCellGrid)
 
 public:
     explicit SudokuView(QWidget* parent = nullptr);
