@@ -80,6 +80,11 @@ void SudokuView::setBlockGridWidth(int width)
     viewport()->update();
 }
 
+void SudokuView::resetBlockGridWidth()
+{
+    setBlockGridWidth(3);
+}
+
 
 int SudokuView::cellGridWidth() const
 {
