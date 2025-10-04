@@ -223,10 +223,10 @@ void SudokuView::paintEvent(QPaintEvent* event)
     const QPen frameGridPen = QPen(frameGridColor, 1, Qt::SolidLine);
 
     const bool showBlockGrid = m_showBlockGrid;
-    const int blockGridWidth = m_blockGridWidth;
+    const int blockGridWidth = showBlockGrid ? m_blockGridWidth : 0;
     const int blockGridHint = style()->styleHint(QStyle::SH_Table_GridLineColor, &option, this);
     const QColor blockGridColor = QColor::fromRgba(static_cast<QRgb>(blockGridHint));
-    const QPen blockGridPen = QPen(showBlockGrid ? blockGridColor : backgroundColor, 1, Qt::SolidLine);
+    const QPen blockGridPen = QPen(blockGridColor, 1, Qt::SolidLine);
 
     const bool showCellGrid = m_showCellGrid;
     const int cellGridWidth = m_cellGridWidth;
@@ -248,6 +248,41 @@ void SudokuView::paintEvent(QPaintEvent* event)
     QPainter painter(viewport());
     painter.setRenderHint(QPainter::Antialiasing);
     painter.fillRect(rect(), backgroundColor);
+
+    // Block grid
+
+    if (showBlockGrid) {
+
+        painter.setPen(blockGridPen);
+
+        int blockOffsetX = frameGridWidth;
+        int blockOffsetY = frameGridWidth;
+
+        for (int i = 1; i < cells; i++) {
+
+            if (i % 3 == 0) {
+
+                blockOffsetX += 3 * cellSize.width() + 2 * cellGridWidth;
+                blockOffsetY += 3 * cellSize.height() + 2 * cellGridWidth;
+
+                for (int i = 0; i < blockGridWidth; i++) {
+
+                    const QPoint horizontalStart = QPoint(frameGridWidth, blockOffsetY);
+                    const QPoint horizontalEnd = QPoint(pointBottomEnd.x() - frameGridWidth, blockOffsetY);
+
+                    painter.drawLine(horizontalStart, horizontalEnd);
+
+                    const QPoint verticalStart = QPoint(blockOffsetX, frameGridWidth);
+                    const QPoint verticalEnd = QPoint(blockOffsetX, pointBottomEnd.y() - frameGridWidth);
+
+                    painter.drawLine(verticalStart, verticalEnd);
+
+                    blockOffsetX++;
+                    blockOffsetY++;
+                }
+            }
+        }
+    }
 
     // Frame grid
 
