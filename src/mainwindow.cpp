@@ -161,13 +161,21 @@ void MainWindow::setupUi()
 
     // Game Controls menu & toolbar
 
-
+    QAction* actionUndo = addAction(tr("&Undo"));
+    actionUndo->setObjectName("actionUndo"_L1);
+    actionUndo->setIcon(QIcon::fromTheme("edit-undo"_L1, QIcon(":/icons/actions/16/edit-undo"_L1)));
+    actionUndo->setIconText(tr("Undo"));
+    actionUndo->setShortcut(QKeySequence::Undo);
+    actionUndo->setStatusTip(tr("Undo the last action"));
+    actionUndo->setToolTip(tr("Undo the last action."));
 
     QMenu* menuGameControls = menuBar()->addMenu(tr("Game &Controls"));
     menuGameControls->setObjectName("menuGameControls"_L1);
+    menuGameControls->addAction(actionUndo);
 
     QToolBar* toolbarGameControls = addToolBar(tr("Game Controls Toolbar"));
     toolbarGameControls->setObjectName("toolbarGameControls"_L1);
+    toolbarGameControls->addAction(actionUndo);
 
     // View menu & toolbar
 
