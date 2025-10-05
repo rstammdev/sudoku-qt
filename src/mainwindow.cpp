@@ -159,12 +159,15 @@ void MainWindow::setupUi()
     toolbarSudokuKiller->addWidget(labelSudokuKiller);
     toolbarSudokuKiller->addActions(actionsSudokuKiller);
 
-    // Game Controls menu
+    // Game Controls menu & toolbar
 
 
 
     QMenu* menuGameControls = menuBar()->addMenu(tr("Game &Controls"));
     menuGameControls->setObjectName("menuGameControls"_L1);
+
+    QToolBar* toolbarGameControls = addToolBar(tr("Game Controls Toolbar"));
+    toolbarGameControls->setObjectName("toolbarGameControls"_L1);
 
     // View menu & toolbar
 
@@ -429,6 +432,7 @@ void MainWindow::setupUi()
     menuShowToolbars->addAction(toolbarFile->toggleViewAction());
     menuShowToolbars->addAction(toolbarSudokuClassic->toggleViewAction());
     menuShowToolbars->addAction(toolbarSudokuKiller->toggleViewAction());
+    menuShowToolbars->addAction(toolbarGameControls->toggleViewAction());
     menuShowToolbars->addAction(toolbarView->toggleViewAction());
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
     menuShowToolbars->addAction(toolbarHelp->toggleViewAction());
