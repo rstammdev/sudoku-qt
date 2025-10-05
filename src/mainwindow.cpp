@@ -169,13 +169,23 @@ void MainWindow::setupUi()
     actionUndo->setStatusTip(tr("Undo the last action"));
     actionUndo->setToolTip(tr("Undo the last action."));
 
+    QAction* actionEraseCell = addAction(tr("&Erase Cell"));
+    actionEraseCell->setObjectName("actionEraseCell"_L1);
+    actionEraseCell->setIcon(QIcon::fromTheme("draw-eraser"_L1, QIcon(":/icons/actions/16/draw-eraser"_L1)));
+    actionEraseCell->setIconText(tr("Erase"));
+    actionEraseCell->setShortcut(QKeySequence::Delete);
+    actionEraseCell->setStatusTip(tr("Erase the cell"));
+    actionEraseCell->setToolTip(tr("Erase the cell."));
+
     QMenu* menuGameControls = menuBar()->addMenu(tr("Game &Controls"));
     menuGameControls->setObjectName("menuGameControls"_L1);
     menuGameControls->addAction(actionUndo);
+    menuGameControls->addAction(actionEraseCell);
 
     QToolBar* toolbarGameControls = addToolBar(tr("Game Controls Toolbar"));
     toolbarGameControls->setObjectName("toolbarGameControls"_L1);
     toolbarGameControls->addAction(actionUndo);
+    toolbarGameControls->addAction(actionEraseCell);
 
     // View menu & toolbar
 
