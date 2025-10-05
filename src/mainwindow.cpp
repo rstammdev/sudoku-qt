@@ -194,12 +194,21 @@ void MainWindow::setupUi()
     actionGamesHint->setStatusTip(tr("Add the solution to the cell"));
     actionGamesHint->setToolTip(tr("Add the solution to the cell."));
 
+    QAction* actionNewGame = addAction(tr("&New Game"));
+    actionNewGame->setObjectName("actionNewGame"_L1);
+    actionNewGame->setIconText(tr("New Game"));
+    actionNewGame->setShortcut(QKeySequence::New);
+    actionNewGame->setStatusTip(tr("Start a new game"));
+    actionNewGame->setToolTip(tr("Start a new game."));
+
     QMenu* menuGameControls = menuBar()->addMenu(tr("Game &Controls"));
     menuGameControls->setObjectName("menuGameControls"_L1);
     menuGameControls->addAction(actionUndo);
     menuGameControls->addAction(actionEraseCell);
     menuGameControls->addAction(actionShowNotes);
     menuGameControls->addAction(actionGamesHint);
+    menuGameControls->addSeparator();
+    menuGameControls->addAction(actionNewGame);
 
     QToolBar* toolbarGameControls = addToolBar(tr("Game Controls Toolbar"));
     toolbarGameControls->setObjectName("toolbarGameControls"_L1);
@@ -207,6 +216,8 @@ void MainWindow::setupUi()
     toolbarGameControls->addAction(actionEraseCell);
     toolbarGameControls->addAction(actionShowNotes);
     toolbarGameControls->addAction(actionGamesHint);
+    toolbarGameControls->addSeparator();
+    toolbarGameControls->addAction(actionNewGame);
 
     // View menu & toolbar
 
