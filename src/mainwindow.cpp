@@ -177,15 +177,26 @@ void MainWindow::setupUi()
     actionEraseCell->setStatusTip(tr("Erase the cell"));
     actionEraseCell->setToolTip(tr("Erase the cell."));
 
+    QAction* actionShowNotes = addAction(tr("Show &Notes"));
+    actionShowNotes->setObjectName("actionShowNotes"_L1);
+    actionShowNotes->setIcon(QIcon::fromTheme("edit-entry"_L1, QIcon(":/icons/actions/16/edit-entry"_L1)));
+    actionShowNotes->setIconText(tr("Notes"));
+    actionShowNotes->setShortcut(Qt::CTRL | Qt::Key_T);
+    actionShowNotes->setStatusTip(tr("Show the notes of the cell"));
+    actionShowNotes->setToolTip(tr("Show the notes of the cell."));
+    actionShowNotes->setCheckable(true);
+
     QMenu* menuGameControls = menuBar()->addMenu(tr("Game &Controls"));
     menuGameControls->setObjectName("menuGameControls"_L1);
     menuGameControls->addAction(actionUndo);
     menuGameControls->addAction(actionEraseCell);
+    menuGameControls->addAction(actionShowNotes);
 
     QToolBar* toolbarGameControls = addToolBar(tr("Game Controls Toolbar"));
     toolbarGameControls->setObjectName("toolbarGameControls"_L1);
     toolbarGameControls->addAction(actionUndo);
     toolbarGameControls->addAction(actionEraseCell);
+    toolbarGameControls->addAction(actionShowNotes);
 
     // View menu & toolbar
 
