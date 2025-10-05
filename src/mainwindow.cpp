@@ -186,17 +186,27 @@ void MainWindow::setupUi()
     actionShowNotes->setToolTip(tr("Show the notes of the cell."));
     actionShowNotes->setCheckable(true);
 
+    QAction* actionGamesHint = addAction(tr("Games &Hint"));
+    actionGamesHint->setObjectName("buttonGamesHint"_L1);
+    actionGamesHint->setIcon(QIcon::fromTheme("games-hint"_L1, QIcon(":/icons/actions/16/games-hint"_L1)));
+    actionGamesHint->setIconText(tr("Hint"));
+    actionGamesHint->setShortcut(Qt::CTRL | Qt::Key_H);
+    actionGamesHint->setStatusTip(tr("Add the solution to the cell"));
+    actionGamesHint->setToolTip(tr("Add the solution to the cell."));
+
     QMenu* menuGameControls = menuBar()->addMenu(tr("Game &Controls"));
     menuGameControls->setObjectName("menuGameControls"_L1);
     menuGameControls->addAction(actionUndo);
     menuGameControls->addAction(actionEraseCell);
     menuGameControls->addAction(actionShowNotes);
+    menuGameControls->addAction(actionGamesHint);
 
     QToolBar* toolbarGameControls = addToolBar(tr("Game Controls Toolbar"));
     toolbarGameControls->setObjectName("toolbarGameControls"_L1);
     toolbarGameControls->addAction(actionUndo);
     toolbarGameControls->addAction(actionEraseCell);
     toolbarGameControls->addAction(actionShowNotes);
+    toolbarGameControls->addAction(actionGamesHint);
 
     // View menu & toolbar
 
