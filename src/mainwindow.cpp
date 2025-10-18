@@ -30,6 +30,7 @@
 #include "aboutdialog/aboutdialog.h"
 #include "aboutdialog/aboutdialogpageauthors.h"
 #include "aboutdialog/aboutdialogpagecomponents.h"
+#include "aboutdialog/aboutdialogpagecredits.h"
 #include "aboutdialog/aboutdialogpagegeneral.h"
 #include "gamecontrolspanel/gamecontrolsunitcontrols.h"
 #include "gamecontrolspanel/gamecontrolsunitnewgame.h"

@@ -15,19 +15,6 @@
 
 
 //
-// Credits
-
-class AboutPageContentTabCredits : public AboutPage
-{
-    Q_OBJECT
-
-public:
-    explicit AboutPageContentTabCredits(QWidget* parent = nullptr);
-    ~AboutPageContentTabCredits() = default;
-};
-
-
-//
 // License
 
 class AboutPageContentTabLicense : public AboutPage
