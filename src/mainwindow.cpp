@@ -444,11 +444,11 @@ void MainWindow::setupUi()
 
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
-    connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::triggerConfigureLanguageDialog);
-    connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::triggerConfigureShortcutsDialog);
-    connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::triggerConfigurePanelsDialog);
-    connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
-    connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
+    connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::showLanguageSettingsDialog);
+    connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::showShortcutSettingsDialog);
+    connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::showPanelSettingsDialog);
+    connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::showToolbarSettingsDialog);
+    connect(actionConfigure, &QAction::triggered, this, &MainWindow::showSettingsDialog);
 
     // Help menu & toolbar
 
@@ -478,8 +478,8 @@ void MainWindow::setupUi()
     toolbarHelp->addAction(actionCopyComponents);
     toolbarHelp->addAction(actionAbout);
 
-    connect(actionCopyComponents, &QAction::triggered, this, &MainWindow::triggerComponentsDialog);
-    connect(actionAbout, &QAction::triggered, this, &MainWindow::triggerAboutDialog);
+    connect(actionCopyComponents, &QAction::triggered, this, &MainWindow::showComponentsDialog);
+    connect(actionAbout, &QAction::triggered, this, &MainWindow::showAboutDialog);
 
     // Show Toolbars menu
 
@@ -617,6 +617,7 @@ void MainWindow::saveSettings()
 void MainWindow::applySudokuGame(QAction* action)
 {
     Q_UNUSED(action)
+
 }
 
 
@@ -641,46 +642,46 @@ void MainWindow::toggleFullScreen(const bool checked)
 }
 
 
-void MainWindow::triggerConfigureLanguageDialog()
+void MainWindow::showLanguageSettingsDialog()
 {
 
 }
 
 
-void MainWindow::triggerConfigureShortcutsDialog()
+void MainWindow::showShortcutSettingsDialog()
 {
 
 }
 
 
-void MainWindow::triggerConfigurePanelsDialog()
+void MainWindow::showPanelSettingsDialog()
 {
 
 }
 
 
-void MainWindow::triggerConfigureToolbarsDialog()
+void MainWindow::showToolbarSettingsDialog()
 {
     QxToolbarsDialog dialog(this);
     dialog.exec();
 }
 
 
-void MainWindow::triggerConfigureDialog()
+void MainWindow::showSettingsDialog()
 {
     SettingsDialog dialog(this);
     dialog.exec();
 }
 
 
-void MainWindow::triggerComponentsDialog()
+void MainWindow::showComponentsDialog()
 {
     QxComponentsDialog dialog(this);
     dialog.exec();
 }
 
 
-void MainWindow::triggerAboutDialog()
+void MainWindow::showAboutDialog()
 {
     QxAboutDialog dialog(this);
     dialog.setDescription(tr("Logic-based, combinatorial number-placement puzzle."));
