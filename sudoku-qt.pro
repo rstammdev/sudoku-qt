@@ -22,14 +22,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 include(3rdparty/qtxt/qtxt.pri)
 
 HEADERS += \
-    src/aboutdialog/aboutdialog.h \
     src/aboutdialog/aboutdialogpageauthors.h \
     src/aboutdialog/aboutdialogpagecomponents.h \
     src/aboutdialog/aboutdialogpagecredits.h \
     src/aboutdialog/aboutdialogpagegeneral.h \
     src/aboutdialog/aboutdialogpagelicense.h \
-    src/aboutdialog/aboutpage.h \
-    src/aboutdialog/aboutpagecontent.h \
     src/gamecontrolspanel/gamecontrolsunitcontrols.h \
     src/gamecontrolspanel/gamecontrolsunitnewgame.h \
     src/gamecontrolspanel/gamecontrolsunitnumberpad.h \
@@ -49,14 +46,11 @@ HEADERS += \
     src/sudokuview.h
 
 SOURCES += \
-    src/aboutdialog/aboutdialog.cpp \
     src/aboutdialog/aboutdialogpageauthors.cpp \
     src/aboutdialog/aboutdialogpagecomponents.cpp \
     src/aboutdialog/aboutdialogpagecredits.cpp \
     src/aboutdialog/aboutdialogpagegeneral.cpp \
     src/aboutdialog/aboutdialogpagelicense.cpp \
-    src/aboutdialog/aboutpage.cpp \
-    src/aboutdialog/aboutpagecontent.cpp \
     src/gamecontrolspanel/gamecontrolsunitcontrols.cpp \
     src/gamecontrolspanel/gamecontrolsunitnewgame.cpp \
     src/gamecontrolspanel/gamecontrolsunitnumberpad.cpp \
