@@ -14,16 +14,4 @@
 #include "aboutpage.h"
 
 
-//
-// License
-
-class AboutPageContentTabLicense : public AboutPage
-{
-    Q_OBJECT
-
-public:
-    explicit AboutPageContentTabLicense(QWidget* parent = nullptr);
-    ~AboutPageContentTabLicense() = default;
-};
-
 #endif // ABOUTPAGECONTENT_H

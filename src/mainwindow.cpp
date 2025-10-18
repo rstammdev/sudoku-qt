@@ -32,6 +32,7 @@
 #include "aboutdialog/aboutdialogpagecomponents.h"
 #include "aboutdialog/aboutdialogpagecredits.h"
 #include "aboutdialog/aboutdialogpagegeneral.h"
+#include "aboutdialog/aboutdialogpagelicense.h"
 #include "gamecontrolspanel/gamecontrolsunitcontrols.h"
 #include "gamecontrolspanel/gamecontrolsunitnewgame.h"
 #include "gamecontrolspanel/gamecontrolsunitnumberpad.h"

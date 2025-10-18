@@ -27,6 +27,7 @@ HEADERS += \
     src/aboutdialog/aboutdialogpagecomponents.h \
     src/aboutdialog/aboutdialogpagecredits.h \
     src/aboutdialog/aboutdialogpagegeneral.h \
+    src/aboutdialog/aboutdialogpagelicense.h \
     src/aboutdialog/aboutpage.h \
     src/aboutdialog/aboutpagecontent.h \
     src/gamecontrolspanel/gamecontrolsunitcontrols.h \
@@ -53,6 +54,7 @@ SOURCES += \
     src/aboutdialog/aboutdialogpagecomponents.cpp \
     src/aboutdialog/aboutdialogpagecredits.cpp \
     src/aboutdialog/aboutdialogpagegeneral.cpp \
+    src/aboutdialog/aboutdialogpagelicense.cpp \
     src/aboutdialog/aboutpage.cpp \
     src/aboutdialog/aboutpagecontent.cpp \
     src/gamecontrolspanel/gamecontrolsunitcontrols.cpp \
