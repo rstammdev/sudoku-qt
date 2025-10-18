@@ -57,19 +57,6 @@ public:
 
 
 //
-// General
-
-class AboutPageContentTabGeneral : public AboutPage
-{
-    Q_OBJECT
-
-public:
-    explicit AboutPageContentTabGeneral(QWidget* parent = nullptr);
-    ~AboutPageContentTabGeneral() = default;
-};
-
-
-//
 // License
 
 class AboutPageContentTabLicense : public AboutPage

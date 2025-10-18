@@ -28,6 +28,7 @@
 #include <qxzoombutton.h>
 
 #include "aboutdialog/aboutdialog.h"
+#include "aboutdialog/aboutdialogpagegeneral.h"
 #include "gamecontrolspanel/gamecontrolsunitcontrols.h"
 #include "gamecontrolspanel/gamecontrolsunitnewgame.h"
 #include "gamecontrolspanel/gamecontrolsunitnumberpad.h"
