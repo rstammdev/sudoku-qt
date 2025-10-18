@@ -23,6 +23,7 @@ include(3rdparty/qtxt/qtxt.pri)
 
 HEADERS += \
     src/aboutdialog/aboutdialog.h \
+    src/aboutdialog/aboutdialogpagecomponents.h \
     src/aboutdialog/aboutdialogpagegeneral.h \
     src/aboutdialog/aboutpage.h \
     src/aboutdialog/aboutpagecontent.h \
@@ -46,6 +47,7 @@ HEADERS += \
 
 SOURCES += \
     src/aboutdialog/aboutdialog.cpp \
+    src/aboutdialog/aboutdialogpagecomponents.cpp \
     src/aboutdialog/aboutdialogpagegeneral.cpp \
     src/aboutdialog/aboutpage.cpp \
     src/aboutdialog/aboutpagecontent.cpp \

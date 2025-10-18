@@ -28,22 +28,6 @@ public:
 
 
 //
-// Components
-
-class AboutPageContentTabComponents : public AboutPage
-{
-    Q_OBJECT
-
-public:
-    explicit AboutPageContentTabComponents(QWidget* parent = nullptr);
-    ~AboutPageContentTabComponents() = default;
-
-private:
-    QString prettyPlatformName() const;
-};
-
-
-//
 // Credits
 
 class AboutPageContentTabCredits : public AboutPage
