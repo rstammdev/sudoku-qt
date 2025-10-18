@@ -15,19 +15,6 @@
 
 
 //
-// Authors
-
-class AboutPageContentTabAuthors : public AboutPage
-{
-    Q_OBJECT
-
-public:
-    explicit AboutPageContentTabAuthors(QWidget* parent = nullptr);
-    ~AboutPageContentTabAuthors() = default;
-};
-
-
-//
 // Credits
 
 class AboutPageContentTabCredits : public AboutPage
