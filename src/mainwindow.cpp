@@ -20,6 +20,7 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 
+#include <qxaboutdialog.h>
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
 #include <qxpanelpalette.h>
@@ -27,7 +28,6 @@
 #include <qxtoollabel.h>
 #include <qxzoombutton.h>
 
-#include "aboutdialog/aboutdialog.h"
 #include "aboutdialog/aboutdialogpageauthors.h"
 #include "aboutdialog/aboutdialogpagecomponents.h"
 #include "aboutdialog/aboutdialogpagecredits.h"
@@ -682,6 +682,13 @@ void MainWindow::triggerComponentsDialog()
 
 void MainWindow::triggerAboutDialog()
 {
-    AboutDialog dialog(this);
+    QxAboutDialog dialog(this);
+    dialog.setDescription(tr("Logic-based, combinatorial number-placement puzzle."));
+    dialog.addPage(new AboutDialogPageGeneral, tr("General"));
+    dialog.addPage(new AboutDialogPageComponents, tr("Components"));
+    dialog.addPage(new AboutDialogPageAuthors, tr("Authors"));
+    dialog.addPage(new AboutDialogPageCredits, tr("Credits"));
+    dialog.addPage(new AboutDialogPageLicense, tr("License"));
+    dialog.setMinimumSize(854, 480);
     dialog.exec();
 }
