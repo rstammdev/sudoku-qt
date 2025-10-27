@@ -544,8 +544,11 @@ void MainWindow::setupUi()
 
     // Game Controls panel
 
-    GameControlsUnitScoreBoard* unitGameControlsScoreBoard = new GameControlsUnitScoreBoard;
-    unitGameControlsScoreBoard->setObjectName("unitGameControlsScoreBoard"_L1);
+    QxToolGroup* panelGameControlsGroupScoreBoard = new QxToolGroup;
+    panelGameControlsGroupScoreBoard->setObjectName("panelGameControlsGroupScoreBoard"_L1);
+    panelGameControlsGroupScoreBoard->setTitle(tr("Score Board"));
+    panelGameControlsGroupScoreBoard->setType(QxToolGroup::FrameBox);
+    panelGameControlsGroupScoreBoard->setColumnCount(1);
 
     QxToolGroup* panelGameControlsGroupStatistics = new QxToolGroup;
     panelGameControlsGroupStatistics->setObjectName("panelGameControlsGroupStatistics"_L1);
@@ -579,6 +582,7 @@ void MainWindow::setupUi()
 
     QxToolPalette* panelGameControls = new QxToolPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
+    panelGameControls->addGroup(panelGameControlsGroupScoreBoard);
     panelGameControls->addGroup(panelGameControlsGroupStatistics);
     panelGameControls->addGroup(panelGameControlsGroupControls);
     panelGameControls->addGroup(panelGameControlsGroupNumberPad);
