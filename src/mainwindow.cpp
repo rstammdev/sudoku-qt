@@ -502,13 +502,17 @@ void MainWindow::setupUi()
     panelGamesGroupSudokuClassic->addActions(actionsSudokuClassic);
     panelGamesGroupSudokuClassic->setColumnCount(2);
 
-    GamesUnitSudokuKiller* unitGamesSudokuKiller = new GamesUnitSudokuKiller;
-    unitGamesSudokuKiller->setObjectName("unitGamesSudokuKiller"_L1);
-    unitGamesSudokuKiller->setToolButtons(actionsSudokuKiller);
+    QxToolGroup* panelGamesGroupSudokuKiller = new QxToolGroup;
+    panelGamesGroupSudokuKiller->setObjectName("panelGamesGroupSudokuKiller"_L1);
+    panelGamesGroupSudokuKiller->setTitle(tr("Sudoku Killer"));
+    panelGamesGroupSudokuKiller->setType(QxToolGroup::GroupBox);
+    panelGamesGroupSudokuKiller->addActions(actionsSudokuKiller);
+    panelGamesGroupSudokuKiller->setColumnCount(2);
 
     QxToolPalette* panelGames = new QxToolPalette(tr("Games Panel"), this);
     panelGames->setObjectName("panelGames"_L1);
     panelGames->addGroup(panelGamesGroupSudokuClassic);
+    panelGames->addGroup(panelGamesGroupSudokuKiller);
     panelGames->setColumnCount(1);
     addDockWidget(Qt::LeftDockWidgetArea, panelGames);
 
