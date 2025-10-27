@@ -549,8 +549,15 @@ void MainWindow::setupUi()
     GameControlsUnitStatistics* unitGameControlsStatistics = new GameControlsUnitStatistics;
     unitGameControlsStatistics->setObjectName("unitGameControlsStatistics"_L1);
 
-    GameControlsUnitControls* unitGameControlsControls = new GameControlsUnitControls;
-    unitGameControlsControls->setObjectName("unitGameControlsControls"_L1);
+    QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
+    panelGameControlsGroupControls->setObjectName("panelGameControlsGroupControls"_L1);
+    panelGameControlsGroupControls->setTitle(tr("Controls"));
+    panelGameControlsGroupControls->setType(QxToolGroup::FlatBox);
+    panelGameControlsGroupControls->addAction(actionUndo);
+    panelGameControlsGroupControls->addAction(actionEraseCell);
+    panelGameControlsGroupControls->addAction(m_actionShowNotes);
+    panelGameControlsGroupControls->addAction(actionGamesHint);
+    panelGameControlsGroupControls->setColumnCount(4);
 
     QxToolGroup* panelGameControlsGroupNumberPad = new QxToolGroup;
     panelGameControlsGroupNumberPad->setObjectName("panelGameControlsGroupNumberPad"_L1);
@@ -568,6 +575,7 @@ void MainWindow::setupUi()
 
     QxToolPalette* panelGameControls = new QxToolPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
+    panelGameControls->addGroup(panelGameControlsGroupControls);
     panelGameControls->addGroup(panelGameControlsGroupNumberPad);
     panelGameControls->addGroup(panelGameControlsGroupNewGame);
     panelGameControls->setColumnCount(1);
