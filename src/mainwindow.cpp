@@ -23,6 +23,7 @@
 #include <qxaboutdialog.h>
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
+#include <qxlabel.h>
 #include <qxpanelpalette.h>
 #include <qxtoolbarsdialog.h>
 #include <qxtoollabel.h>
@@ -544,10 +545,16 @@ void MainWindow::setupUi()
 
     // Game Controls panel
 
+    QxLabel* labelScores = new QxLabel(tr("0"));
+    labelScores->setObjectName("labelScores"_L1);
+    labelScores->setFontBold(true);
+    labelScores->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
+
     QxToolGroup* panelGameControlsGroupScoreBoard = new QxToolGroup;
     panelGameControlsGroupScoreBoard->setObjectName("panelGameControlsGroupScoreBoard"_L1);
     panelGameControlsGroupScoreBoard->setTitle(tr("Score Board"));
     panelGameControlsGroupScoreBoard->setType(QxToolGroup::FrameBox);
+    panelGameControlsGroupScoreBoard->addWidget(labelScores);
     panelGameControlsGroupScoreBoard->setColumnCount(1);
 
     QxToolGroup* panelGameControlsGroupStatistics = new QxToolGroup;
