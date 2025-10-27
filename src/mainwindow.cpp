@@ -528,11 +528,16 @@ void MainWindow::setupUi()
     GameControlsUnitNumberPad* unitGameControlsNumberPad = new GameControlsUnitNumberPad;
     unitGameControlsNumberPad->setObjectName("unitGameControlsNumberPad"_L1);
 
-    GameControlsUnitNewGame* unitGameControlsNewGame = new GameControlsUnitNewGame;
-    unitGameControlsNewGame->setObjectName("unitGameControlsNewGame"_L1);
+    QxToolGroup* panelGameControlsGroupNewGame = new QxToolGroup;
+    panelGameControlsGroupNewGame->setObjectName("panelGameControlsGroupNewGame"_L1);
+    panelGameControlsGroupNewGame->setTitle(tr("New Game"));
+    panelGameControlsGroupNewGame->setType(QxToolGroup::FlatBox);
+    panelGameControlsGroupNewGame->addAction(actionNewGame);
+    panelGameControlsGroupNewGame->setColumnCount(1);
 
     QxToolPalette* panelGameControls = new QxToolPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
+    panelGameControls->addGroup(panelGameControlsGroupNewGame);
     panelGameControls->setColumnCount(1);
     addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
 
