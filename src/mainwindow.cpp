@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QLabel>
 #include <QList>
 #include <QMenu>
 #include <QMenuBar>
@@ -546,8 +547,11 @@ void MainWindow::setupUi()
     GameControlsUnitScoreBoard* unitGameControlsScoreBoard = new GameControlsUnitScoreBoard;
     unitGameControlsScoreBoard->setObjectName("unitGameControlsScoreBoard"_L1);
 
-    GameControlsUnitStatistics* unitGameControlsStatistics = new GameControlsUnitStatistics;
-    unitGameControlsStatistics->setObjectName("unitGameControlsStatistics"_L1);
+    QxToolGroup* panelGameControlsGroupStatistics = new QxToolGroup;
+    panelGameControlsGroupStatistics->setObjectName("panelGameControlsGroupStatistics"_L1);
+    panelGameControlsGroupStatistics->setTitle(tr("Statistics"));
+    panelGameControlsGroupStatistics->setType(QxToolGroup::FlatBox);
+    panelGameControlsGroupStatistics->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
     panelGameControlsGroupControls->setObjectName("panelGameControlsGroupControls"_L1);
@@ -575,6 +579,7 @@ void MainWindow::setupUi()
 
     QxToolPalette* panelGameControls = new QxToolPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
+    panelGameControls->addGroup(panelGameControlsGroupStatistics);
     panelGameControls->addGroup(panelGameControlsGroupControls);
     panelGameControls->addGroup(panelGameControlsGroupNumberPad);
     panelGameControls->addGroup(panelGameControlsGroupNewGame);
