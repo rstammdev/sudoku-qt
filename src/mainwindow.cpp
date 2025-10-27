@@ -8,7 +8,6 @@
 
 #include "mainwindow.h"
 
-#include <QActionGroup>
 #include <QApplication>
 #include <QList>
 #include <QMenu>
@@ -165,11 +164,29 @@ void MainWindow::setupUi()
 
     // Input menu & toolbar
 
+    m_actionsNumbers = new QActionGroup(this);
+    m_actionsNumbers->setObjectName("actionsNumbers"_L1);
+
+    for (int n = 1; n <= 9; n++) {
+
+        QAction* action = addAction(tr("Number %1").arg(n));
+        action->setObjectName("actionNumber_%1"_L1.arg(QString::number(n)));
+        action->setIconText(tr("%1").arg(n));
+        action->setShortcut(tr("%1").arg(n));
+        action->setStatusTip(tr("Add number %1").arg(n));
+        action->setToolTip(tr("Add number %1.").arg(n));
+        action->setData(n);
+
+        m_actionsNumbers->addAction(action);
+    }
+
     QMenu* menuInput = menuBar()->addMenu(tr("&Input"));
     menuInput->setObjectName("menuInput"_L1);
+    menuInput->addActions(m_actionsNumbers->actions());
 
     QToolBar* toolbarInput = addToolBar(tr("Input Toolbar"));
     toolbarInput->setObjectName("toolbarInput"_L1);
+    toolbarInput->addActions(m_actionsNumbers->actions());
 
     // Game Controls menu & toolbar
 

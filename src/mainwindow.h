@@ -10,6 +10,7 @@
 #define MAINWINDOW_H
 
 #include <QAction>
+#include <QActionGroup>
 #include <QCloseEvent>
 #include <QMainWindow>
 
@@ -48,6 +49,8 @@ private:
     SudokuView* m_sudokuView;
 
     void setupUi();
+
+    QActionGroup* m_actionsNumbers;
 
     QAction* m_actionSchemeTheme;
     QAction* m_actionShowMenubar;
