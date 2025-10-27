@@ -206,14 +206,14 @@ void MainWindow::setupUi()
     actionEraseCell->setStatusTip(tr("Erase the cell"));
     actionEraseCell->setToolTip(tr("Erase the cell."));
 
-    QAction* actionShowNotes = addAction(tr("Show &Notes"));
-    actionShowNotes->setObjectName("actionShowNotes"_L1);
-    actionShowNotes->setIcon(QIcon::fromTheme("edit-entry"_L1, QIcon(":/icons/actions/16/edit-entry"_L1)));
-    actionShowNotes->setIconText(tr("Notes"));
-    actionShowNotes->setShortcut(Qt::CTRL | Qt::Key_T);
-    actionShowNotes->setStatusTip(tr("Show the notes of the cell"));
-    actionShowNotes->setToolTip(tr("Show the notes of the cell."));
-    actionShowNotes->setCheckable(true);
+    m_actionShowNotes = addAction(tr("Show &Notes"));
+    m_actionShowNotes->setObjectName("actionShowNotes"_L1);
+    m_actionShowNotes->setIcon(QIcon::fromTheme("edit-entry"_L1, QIcon(":/icons/actions/16/edit-entry"_L1)));
+    m_actionShowNotes->setIconText(tr("Notes"));
+    m_actionShowNotes->setShortcut(Qt::CTRL | Qt::Key_T);
+    m_actionShowNotes->setStatusTip(tr("Show the notes of the cell"));
+    m_actionShowNotes->setToolTip(tr("Show the notes of the cell."));
+    m_actionShowNotes->setCheckable(true);
 
     QAction* actionGamesHint = addAction(tr("Games &Hint"));
     actionGamesHint->setObjectName("buttonGamesHint"_L1);
@@ -234,7 +234,7 @@ void MainWindow::setupUi()
     menuGameControls->setObjectName("menuGameControls"_L1);
     menuGameControls->addAction(actionUndo);
     menuGameControls->addAction(actionEraseCell);
-    menuGameControls->addAction(actionShowNotes);
+    menuGameControls->addAction(m_actionShowNotes);
     menuGameControls->addAction(actionGamesHint);
     menuGameControls->addSeparator();
     menuGameControls->addAction(actionNewGame);
@@ -243,10 +243,12 @@ void MainWindow::setupUi()
     toolbarGameControls->setObjectName("toolbarGameControls"_L1);
     toolbarGameControls->addAction(actionUndo);
     toolbarGameControls->addAction(actionEraseCell);
-    toolbarGameControls->addAction(actionShowNotes);
+    toolbarGameControls->addAction(m_actionShowNotes);
     toolbarGameControls->addAction(actionGamesHint);
     toolbarGameControls->addSeparator();
     toolbarGameControls->addAction(actionNewGame);
+
+    connect(m_actionShowNotes, &QAction::toggled, this, &MainWindow::updateActionsNumbers);
 
     // View menu & toolbar
 
@@ -577,6 +579,19 @@ void MainWindow::setupUi()
     menuShowPanels->addAction(panelGames->toggleViewAction());
     menuShowPanels->addAction(panelGameControls->toggleViewAction());
 
+}
+
+
+void MainWindow::updateActionsNumbers()
+{
+    const bool checked = m_actionShowNotes->isChecked();
+
+    for (QAction* action : m_actionsNumbers->actions()) {
+
+        QFont font = action->font();
+        font.setItalic(checked);
+        action->setFont(font);
+    }
 }
 
 

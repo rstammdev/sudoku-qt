@@ -32,6 +32,8 @@ protected:
 private slots:
     void applySudokuGame(QAction* action);
 
+    void updateActionsNumbers();
+
     void applyZoomFactor(const qreal factor);
     void toggleFullScreen(const bool checked);
 
@@ -51,6 +53,8 @@ private:
     void setupUi();
 
     QActionGroup* m_actionsNumbers;
+
+    QAction* m_actionShowNotes;
 
     QAction* m_actionSchemeTheme;
     QAction* m_actionShowMenubar;
