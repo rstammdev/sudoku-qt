@@ -550,8 +550,12 @@ void MainWindow::setupUi()
     GameControlsUnitControls* unitGameControlsControls = new GameControlsUnitControls;
     unitGameControlsControls->setObjectName("unitGameControlsControls"_L1);
 
-    GameControlsUnitNumberPad* unitGameControlsNumberPad = new GameControlsUnitNumberPad;
-    unitGameControlsNumberPad->setObjectName("unitGameControlsNumberPad"_L1);
+    QxToolGroup* panelGameControlsGroupNumberPad = new QxToolGroup;
+    panelGameControlsGroupNumberPad->setObjectName("panelGameControlsGroupNumberPad"_L1);
+    panelGameControlsGroupNumberPad->setTitle(tr("Number Pad"));
+    panelGameControlsGroupNumberPad->setType(QxToolGroup::FlatBox);
+    panelGameControlsGroupNumberPad->addActions(m_actionsNumbers->actions());
+    panelGameControlsGroupNumberPad->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupNewGame = new QxToolGroup;
     panelGameControlsGroupNewGame->setObjectName("panelGameControlsGroupNewGame"_L1);
@@ -562,11 +566,10 @@ void MainWindow::setupUi()
 
     QxToolPalette* panelGameControls = new QxToolPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
+    panelGameControls->addGroup(panelGameControlsGroupNumberPad);
     panelGameControls->addGroup(panelGameControlsGroupNewGame);
     panelGameControls->setColumnCount(1);
     addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
-
-    connect(unitGameControlsControls, &GameControlsUnitControls::buttonNotesToggled, unitGameControlsNumberPad, &GameControlsUnitNumberPad::updateButtonStyleRequested);
 
     // Show Panels menu
 
