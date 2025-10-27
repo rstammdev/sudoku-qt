@@ -27,11 +27,6 @@ HEADERS += \
     src/aboutdialog/aboutdialogpagecredits.h \
     src/aboutdialog/aboutdialogpagegeneral.h \
     src/aboutdialog/aboutdialogpagelicense.h \
-    src/gamecontrolspanel/gamecontrolsunitcontrols.h \
-    src/gamecontrolspanel/gamecontrolsunitnewgame.h \
-    src/gamecontrolspanel/gamecontrolsunitnumberpad.h \
-    src/gamecontrolspanel/gamecontrolsunitscoreboard.h \
-    src/gamecontrolspanel/gamecontrolsunitstatistics.h \
     src/mainwindow.h \
     src/settingsdialog/settingsdialog.h \
     src/settingsdialog/settingspage.h \
@@ -49,11 +44,6 @@ SOURCES += \
     src/aboutdialog/aboutdialogpagecredits.cpp \
     src/aboutdialog/aboutdialogpagegeneral.cpp \
     src/aboutdialog/aboutdialogpagelicense.cpp \
-    src/gamecontrolspanel/gamecontrolsunitcontrols.cpp \
-    src/gamecontrolspanel/gamecontrolsunitnewgame.cpp \
-    src/gamecontrolspanel/gamecontrolsunitnumberpad.cpp \
-    src/gamecontrolspanel/gamecontrolsunitscoreboard.cpp \
-    src/gamecontrolspanel/gamecontrolsunitstatistics.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/settingsdialog/settingsdialog.cpp \
