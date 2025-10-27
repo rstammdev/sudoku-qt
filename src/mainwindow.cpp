@@ -39,8 +39,6 @@
 #include "gamecontrolspanel/gamecontrolsunitnumberpad.h"
 #include "gamecontrolspanel/gamecontrolsunitscoreboard.h"
 #include "gamecontrolspanel/gamecontrolsunitstatistics.h"
-#include "gamespanel/gamesunitsudokuclassic.h"
-#include "gamespanel/gamesunitsudokukiller.h"
 #include "settingsdialog/settingsdialog.h"
 #include "sudoku.h"
 
