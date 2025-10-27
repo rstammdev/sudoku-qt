@@ -26,6 +26,7 @@
 #include <qxpanelpalette.h>
 #include <qxtoolbarsdialog.h>
 #include <qxtoollabel.h>
+#include <qxtoolpalette.h>
 #include <qxzoombutton.h>
 
 #include "aboutdialog/aboutdialogpageauthors.h"
@@ -502,10 +503,9 @@ void MainWindow::setupUi()
     unitGamesSudokuKiller->setObjectName("unitGamesSudokuKiller"_L1);
     unitGamesSudokuKiller->setToolButtons(actionsSudokuKiller);
 
-    QxPanelPalette* panelGames = new QxPanelPalette(tr("Games Panel"), this);
+    QxToolPalette* panelGames = new QxToolPalette(tr("Games Panel"), this);
     panelGames->setObjectName("panelGames"_L1);
-    panelGames->addUnit(unitGamesSudokuClassic);
-    panelGames->addUnit(unitGamesSudokuKiller);
+    panelGames->setColumnCount(1);
     addDockWidget(Qt::LeftDockWidgetArea, panelGames);
 
     // Game Controls panel
