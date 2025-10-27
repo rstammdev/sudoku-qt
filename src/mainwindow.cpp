@@ -531,13 +531,9 @@ void MainWindow::setupUi()
     GameControlsUnitNewGame* unitGameControlsNewGame = new GameControlsUnitNewGame;
     unitGameControlsNewGame->setObjectName("unitGameControlsNewGame"_L1);
 
-    QxPanelPalette* panelGameControls = new QxPanelPalette(tr("Game Controls Panel"), this);
+    QxToolPalette* panelGameControls = new QxToolPalette(tr("Game Controls Panel"), this);
     panelGameControls->setObjectName("panelGameControls"_L1);
-    panelGameControls->addUnit(unitGameControlsScoreBoard);
-    panelGameControls->addUnit(unitGameControlsStatistics);
-    panelGameControls->addUnit(unitGameControlsControls);
-    panelGameControls->addUnit(unitGameControlsNumberPad);
-    panelGameControls->addUnit(unitGameControlsNewGame);
+    panelGameControls->setColumnCount(1);
     addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
 
     connect(unitGameControlsControls, &GameControlsUnitControls::buttonNotesToggled, unitGameControlsNumberPad, &GameControlsUnitNumberPad::updateButtonStyleRequested);
