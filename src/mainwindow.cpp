@@ -584,11 +584,22 @@ void MainWindow::setupUi()
     QLabel* labelMistakesLabel = new QLabel(tr("Mistakes"));
     labelMistakesLabel->setObjectName("labelMistakesLabel"_L1);
 
+    QPushButton* buttonPlayGame = new QPushButton;
+    buttonPlayGame->setObjectName("buttonPlayGame"_L1);
+    buttonPlayGame->setText(actionPlayGame->iconText());
+    buttonPlayGame->setIcon(actionPlayGame->icon());
+    buttonPlayGame->setStatusTip(actionPlayGame->statusTip());
+    buttonPlayGame->setToolTip(actionPlayGame->toolTip());
+    buttonPlayGame->setCheckable(true);
+    buttonPlayGame->setChecked(actionPlayGame->isChecked());
+    buttonPlayGame->setFlat(true);
+
     QxToolGroup* panelGameControlsGroupStatistics = new QxToolGroup;
     panelGameControlsGroupStatistics->setObjectName("panelGameControlsGroupStatistics"_L1);
     panelGameControlsGroupStatistics->setTitle(tr("Statistics"));
     panelGameControlsGroupStatistics->setType(QxToolGroup::FlatBox);
     panelGameControlsGroupStatistics->addWidget(labelMistakesLabel);
+    panelGameControlsGroupStatistics->addWidget(buttonPlayGame);
     panelGameControlsGroupStatistics->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
@@ -624,6 +635,15 @@ void MainWindow::setupUi()
     panelGameControls->addGroup(panelGameControlsGroupNewGame);
     panelGameControls->setColumnCount(1);
     addDockWidget(Qt::RightDockWidgetArea, panelGameControls);
+
+    connect(actionPlayGame, &QAction::changed, [=](){
+        buttonPlayGame->setText(actionPlayGame->iconText());
+        buttonPlayGame->setIcon(actionPlayGame->icon());
+        buttonPlayGame->setStatusTip(actionPlayGame->statusTip());
+        buttonPlayGame->setToolTip(actionPlayGame->toolTip());
+        buttonPlayGame->setChecked(actionPlayGame->isChecked());
+    });
+    connect(buttonPlayGame, &QPushButton::clicked, actionPlayGame, &QAction::toggle);
 
     // Show Panels menu
 
