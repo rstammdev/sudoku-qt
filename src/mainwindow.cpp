@@ -187,6 +187,30 @@ void MainWindow::setupUi()
 
     // Game Controls menu & toolbar
 
+    QAction* actionPlayGame = addAction(tr("&Play Game"));
+    actionPlayGame->setObjectName("actionPlay"_L1);
+    actionPlayGame->setShortcut(Qt::CTRL | Qt::Key_P);
+    actionPlayGame->setCheckable(true);
+
+    actionPlayGame->toggle();
+    connect(actionPlayGame, &QAction::toggled, [=](const bool checked) {
+        if (!checked) {
+            actionPlayGame->setText(tr("&Start Game"));
+            actionPlayGame->setIcon(QIcon::fromTheme("media-playback-start"_L1, QIcon(":/icons/actions/16/media-playback-start"_L1)));
+            actionPlayGame->setIconText(tr("Start"));
+            actionPlayGame->setStatusTip(tr("Start the game"));
+            actionPlayGame->setToolTip(tr("Start the game."));
+        }
+        else {
+            actionPlayGame->setText(tr("&Pause Game"));
+            actionPlayGame->setIcon(QIcon::fromTheme("media-playback-pause"_L1, QIcon(":/icons/actions/16/media-playback-pause"_L1)));
+            actionPlayGame->setIconText(tr("Pause"));
+            actionPlayGame->setStatusTip(tr("Pause the game"));
+            actionPlayGame->setToolTip(tr("Pause the game."));
+        }
+    });
+    actionPlayGame->toggle();
+
     QAction* actionUndo = addAction(tr("&Undo"));
     actionUndo->setObjectName("actionUndo"_L1);
     actionUndo->setIcon(QIcon::fromTheme("edit-undo"_L1, QIcon(":/icons/actions/16/edit-undo"_L1)));
@@ -230,6 +254,8 @@ void MainWindow::setupUi()
 
     QMenu* menuGameControls = menuBar()->addMenu(tr("Game &Controls"));
     menuGameControls->setObjectName("menuGameControls"_L1);
+    menuGameControls->addAction(actionPlayGame);
+    menuGameControls->addSeparator();
     menuGameControls->addAction(actionUndo);
     menuGameControls->addAction(actionEraseCell);
     menuGameControls->addAction(m_actionShowNotes);
@@ -239,6 +265,8 @@ void MainWindow::setupUi()
 
     QToolBar* toolbarGameControls = addToolBar(tr("Game Controls Toolbar"));
     toolbarGameControls->setObjectName("toolbarGameControls"_L1);
+    toolbarGameControls->addAction(actionPlayGame);
+    toolbarGameControls->addSeparator();
     toolbarGameControls->addAction(actionUndo);
     toolbarGameControls->addAction(actionEraseCell);
     toolbarGameControls->addAction(m_actionShowNotes);
