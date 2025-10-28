@@ -60,6 +60,8 @@ private:
     SudokuModel* m_sudokuModel;
     SudokuView* m_sudokuView;
 
+    NumberStyles m_numberStyles;
+
     void setupUi();
 
     QActionGroup* m_actionsNumbers;

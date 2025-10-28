@@ -45,6 +45,7 @@ MainWindow::MainWindow(QWidget* parent)
     : QMainWindow{parent}
     , m_sudokuModel{new SudokuModel(this)}
     , m_sudokuView{new SudokuView(this)}
+    , m_numberStyles{NumberStyle::Italic}
 {
 
     setupUi();
@@ -680,7 +681,9 @@ void MainWindow::updateActionsNumbers()
     for (QAction* action : m_actionsNumbers->actions()) {
 
         QFont font = action->font();
-        font.setItalic(checked);
+        font.setBold(checked && m_numberStyles.testFlag(NumberStyle::Bold));
+        font.setItalic(checked && m_numberStyles.testFlag(NumberStyle::Italic));
+        font.setStrikeOut(checked && m_numberStyles.testFlag(NumberStyle::StrikeOut));
         action->setFont(font);
     }
 }
