@@ -581,10 +581,14 @@ void MainWindow::setupUi()
     panelGameControlsGroupScoreBoard->addWidget(labelScores);
     panelGameControlsGroupScoreBoard->setColumnCount(1);
 
+    QLabel* labelMistakesLabel = new QLabel(tr("Mistakes"));
+    labelMistakesLabel->setObjectName("labelMistakesLabel"_L1);
+
     QxToolGroup* panelGameControlsGroupStatistics = new QxToolGroup;
     panelGameControlsGroupStatistics->setObjectName("panelGameControlsGroupStatistics"_L1);
     panelGameControlsGroupStatistics->setTitle(tr("Statistics"));
     panelGameControlsGroupStatistics->setType(QxToolGroup::FlatBox);
+    panelGameControlsGroupStatistics->addWidget(labelMistakesLabel);
     panelGameControlsGroupStatistics->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
