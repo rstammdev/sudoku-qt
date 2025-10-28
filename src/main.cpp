@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     uiLanguages << QLocale::system().uiLanguages();
     uiLanguages << "en_001"_L1;
     for (const QString& locale : std::as_const(uiLanguages)) {
-        const QString baseName = "sudoku-qt_"_L1 + QLocale(locale).name();
+        const QString& baseName = "sudoku-qt_"_L1 + QLocale(locale).name();
         if (translator.load(":/i18n/"_L1 + baseName)) {
             app.installTranslator(&translator);
             break;

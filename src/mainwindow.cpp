@@ -24,8 +24,8 @@
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
 #include <qxlabel.h>
-#include <qxpanelpalette.h>
 #include <qxtoolbarsdialog.h>
+#include <qxtoolgroup.h>
 #include <qxtoollabel.h>
 #include <qxtoolpalette.h>
 #include <qxzoombutton.h>
@@ -70,7 +70,7 @@ MainWindow::~MainWindow() {}
 void MainWindow::setupUi()
 {
     QActionGroup* actionsSudokuGames = new QActionGroup(this);
-    actionsSudokuGames->setObjectName(QStringLiteral("actionsSudokuGames"));
+    actionsSudokuGames->setObjectName("actionsSudokuGames"_L1);
     actionsSudokuGames->setExclusionPolicy(QActionGroup::ExclusionPolicy::ExclusiveOptional);
 
     connect(actionsSudokuGames, &QActionGroup::triggered, this, &MainWindow::applySudokuGame);
@@ -278,8 +278,6 @@ void MainWindow::setupUi()
     connect(m_actionShowNotes, &QAction::toggled, this, &MainWindow::updateActionsNumbers);
 
     // View menu & toolbar
-
-
 
     QAction* actionShowBlockGrid = addAction(tr("Show &Block Grid"));
     actionShowBlockGrid->setObjectName("actionShowBlockGrid"_L1);
