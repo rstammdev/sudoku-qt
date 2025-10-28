@@ -605,6 +605,10 @@ void MainWindow::setupUi()
     labelHintsLabel->setObjectName("labelHintsLabel"_L1);
     labelHintsLabel->setAlignment(Qt::AlignTrailing);
 
+    QLabel* labelHintsCounter = new QLabel(tr("0/3"));
+    labelHintsCounter->setObjectName("labelHintsCounter"_L1);
+    labelHintsCounter->setAlignment(Qt::AlignTrailing);
+
     QxToolGroup* panelGameControlsGroupStatistics = new QxToolGroup;
     panelGameControlsGroupStatistics->setObjectName("panelGameControlsGroupStatistics"_L1);
     panelGameControlsGroupStatistics->setTitle(tr("Statistics"));
@@ -614,6 +618,7 @@ void MainWindow::setupUi()
     panelGameControlsGroupStatistics->addWidget(labelHintsLabel);
     panelGameControlsGroupStatistics->addWidget(labelMistakesCounter);
     panelGameControlsGroupStatistics->addWidget(labelTimeCounter);
+    panelGameControlsGroupStatistics->addWidget(labelHintsCounter);
     panelGameControlsGroupStatistics->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
