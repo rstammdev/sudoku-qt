@@ -23,6 +23,16 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    enum NumberStyle {
+        NoStyles = 0x00,
+        Bold = 0x01,
+        Italic = 0x02,
+        StrikeOut = 0x04,
+    };
+    Q_ENUM(NumberStyle)
+    Q_DECLARE_FLAGS(NumberStyles, NumberStyle)
+    Q_FLAG(NumberStyles)
+
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
@@ -63,5 +73,7 @@ private:
     void loadSettings();
     void saveSettings();
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(MainWindow::NumberStyles)
 
 #endif // MAINWINDOW_H
