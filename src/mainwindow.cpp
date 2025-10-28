@@ -584,6 +584,9 @@ void MainWindow::setupUi()
     QLabel* labelMistakesLabel = new QLabel(tr("Mistakes"));
     labelMistakesLabel->setObjectName("labelMistakesLabel"_L1);
 
+    QLabel* labelMistakesCounter = new QLabel(tr("0/3"));
+    labelMistakesCounter->setObjectName("labelMistakesCounter"_L1);
+
     QPushButton* buttonPlayGame = new QPushButton;
     buttonPlayGame->setObjectName("buttonPlayGame"_L1);
     buttonPlayGame->setText(actionPlayGame->iconText());
@@ -605,6 +608,7 @@ void MainWindow::setupUi()
     panelGameControlsGroupStatistics->addWidget(labelMistakesLabel);
     panelGameControlsGroupStatistics->addWidget(buttonPlayGame);
     panelGameControlsGroupStatistics->addWidget(labelHintsLabel);
+    panelGameControlsGroupStatistics->addWidget(labelMistakesCounter);
     panelGameControlsGroupStatistics->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
