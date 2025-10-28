@@ -597,6 +597,10 @@ void MainWindow::setupUi()
     buttonPlayGame->setChecked(actionPlayGame->isChecked());
     buttonPlayGame->setFlat(true);
 
+    QLabel* labelTimeCounter = new QLabel(tr("00:00:00"));
+    labelTimeCounter->setObjectName("labelTimeCounter"_L1);
+    labelTimeCounter->setAlignment(Qt::AlignHCenter);
+
     QLabel* labelHintsLabel = new QLabel(tr("Hints"));
     labelHintsLabel->setObjectName("labelHintsLabel"_L1);
     labelHintsLabel->setAlignment(Qt::AlignTrailing);
@@ -609,6 +613,7 @@ void MainWindow::setupUi()
     panelGameControlsGroupStatistics->addWidget(buttonPlayGame);
     panelGameControlsGroupStatistics->addWidget(labelHintsLabel);
     panelGameControlsGroupStatistics->addWidget(labelMistakesCounter);
+    panelGameControlsGroupStatistics->addWidget(labelTimeCounter);
     panelGameControlsGroupStatistics->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
