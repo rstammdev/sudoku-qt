@@ -594,12 +594,17 @@ void MainWindow::setupUi()
     buttonPlayGame->setChecked(actionPlayGame->isChecked());
     buttonPlayGame->setFlat(true);
 
+    QLabel* labelHintsLabel = new QLabel(tr("Hints"));
+    labelHintsLabel->setObjectName("labelHintsLabel"_L1);
+    labelHintsLabel->setAlignment(Qt::AlignTrailing);
+
     QxToolGroup* panelGameControlsGroupStatistics = new QxToolGroup;
     panelGameControlsGroupStatistics->setObjectName("panelGameControlsGroupStatistics"_L1);
     panelGameControlsGroupStatistics->setTitle(tr("Statistics"));
     panelGameControlsGroupStatistics->setType(QxToolGroup::FlatBox);
     panelGameControlsGroupStatistics->addWidget(labelMistakesLabel);
     panelGameControlsGroupStatistics->addWidget(buttonPlayGame);
+    panelGameControlsGroupStatistics->addWidget(labelHintsLabel);
     panelGameControlsGroupStatistics->setColumnCount(3);
 
     QxToolGroup* panelGameControlsGroupControls = new QxToolGroup;
