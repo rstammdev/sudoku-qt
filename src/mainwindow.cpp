@@ -222,6 +222,7 @@ void MainWindow::setupUi()
 
     QAction* actionNewGame = addAction(tr("&New Game"));
     actionNewGame->setObjectName("actionNewGame"_L1);
+    actionNewGame->setIcon(QIcon::fromTheme("document-new"_L1, QIcon(":/icons/actions/16/document-new"_L1)));
     actionNewGame->setIconText(tr("New Game"));
     actionNewGame->setShortcut(QKeySequence::New);
     actionNewGame->setStatusTip(tr("Start a new game"));
@@ -579,7 +580,7 @@ void MainWindow::setupUi()
     panelGameControlsGroupNewGame->setObjectName("panelGameControlsGroupNewGame"_L1);
     panelGameControlsGroupNewGame->setTitle(tr("New Game"));
     panelGameControlsGroupNewGame->setType(QxToolGroup::FlatBox);
-    panelGameControlsGroupNewGame->addAction(actionNewGame);
+    panelGameControlsGroupNewGame->addAction(actionNewGame, Qt::ToolButtonTextOnly);
     panelGameControlsGroupNewGame->setColumnCount(1);
 
     QxToolPalette* panelGameControls = new QxToolPalette(tr("Game Controls Panel"), this);
